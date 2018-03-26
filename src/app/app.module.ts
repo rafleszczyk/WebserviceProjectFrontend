@@ -25,12 +25,12 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 
-  /*export: [
+  exports: [
     PageNotFoundComponent,
     HomePageComponent
-  ],*/
+  ],
 })
 export class AppModule {
 }
