@@ -1,38 +1,36 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
-
 import {AppComponent} from './app.component';
-import {MainTopComponent} from './main-top/main-top.component';
-import {OffertsComponent} from './offerts/offerts.component';
-import {AboutComponent} from './about/about.component';
 import {RouterModule, Routes} from '@angular/router';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import { HomePageComponent } from './home-page/home-page.component';
+
 
 const routes: Routes = [
-  // { path: 'home', component: HomeComponent},
+  { path: 'home', component: HomePageComponent},
   // { path: 'login', component: LoginComponent },
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent }
 ];
 @NgModule({
   declarations: [
     AppComponent,
-    MainTopComponent,
-    OffertsComponent,
-    AboutComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(routes),
   ],
-  export: [
-    PageNotFoundComponent,
-  ],
   providers: [],
   bootstrap: [AppComponent]
+
+  /*export: [
+    PageNotFoundComponent,
+    HomePageComponent
+  ],*/
 })
 export class AppModule {
 }
