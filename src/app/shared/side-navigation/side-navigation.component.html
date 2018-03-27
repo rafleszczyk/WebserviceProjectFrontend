@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<ul class="list-group mt-5">
+  <a *ngFor="let tab of sideNavMetadata" [routerLink]="[tab.redirectUrl]"
+     routerLinkActive="active-tab">
+    <li class="list-group-item nav-tab">
+      <i class="{{tab.favicon}} mr-2" aria-hidden="true"></i>{{tab.name}}
+    </li>
+  </a>
+</ul>

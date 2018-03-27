@@ -27,3 +27,13 @@
 .router-outlet-wrapper {
   min-width: calc(100vw - 250px);
 }
+
+.logo {
+  width: 250px;
+  position: relative;
+  top: 4px;
+  background-image: url("../../../assets/images/logo.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}

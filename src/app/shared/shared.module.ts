@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {AppModule} from '../app.module';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HomePageComponent} from './home-page/home-page.component';
 import {SideNavigationComponent} from './side-navigation/side-navigation.component';
+import {CommonModule} from '@angular/common';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,8 @@ import {SideNavigationComponent} from './side-navigation/side-navigation.compone
     SideNavigationComponent,
   ],
   imports: [
-    NgbModule.forRoot(),
+    CommonModule,
+    RouterModule,
   ],
   exports: [
     PageNotFoundComponent,
@@ -22,4 +23,5 @@ import {SideNavigationComponent} from './side-navigation/side-navigation.compone
   providers: [],
 
 })
-export class SharedModule {}
+export class SharedModule {
+}

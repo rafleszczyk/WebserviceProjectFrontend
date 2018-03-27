@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {ISideNavigation} from './side-navigation.interface';
 
 @Component({
   selector: 'app-side-navigation',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./side-navigation.component.scss']
 })
 
-export class SideNavigationComponent {}
+export class SideNavigationComponent {
+  @Input() sideNavMetadata: ISideNavigation[] = [];
+}
