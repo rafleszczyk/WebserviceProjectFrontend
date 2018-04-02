@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {ISideNavigation} from '../../shared/side-navigation/side-navigation.interface';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-client-home',
@@ -9,8 +10,10 @@ import {ISideNavigation} from '../../shared/side-navigation/side-navigation.inte
 
 export class ClientHomeComponent {
   sideNavMetadata: ISideNavigation[];
+  breadcrumb: string;
 
-  constructor() {
+  constructor(private test: ActivatedRoute) {
+    this.breadcrumb = '';
     this.buildSideNavigation();
   }
 
@@ -21,4 +24,5 @@ export class ClientHomeComponent {
       {name: 'Archive', redirectUrl: 'archive', favicon: 'fa fa-archive'}
     ];
   }
+
 }
