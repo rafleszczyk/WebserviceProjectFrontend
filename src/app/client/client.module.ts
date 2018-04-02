@@ -4,6 +4,7 @@ import {ClientHomeComponent} from './client-home/client-home.component';
 import {CommonModule} from '@angular/common';
 import {ClientPanelComponent} from './client-panel/client-panel.component';
 import {RouterModule, Routes} from '@angular/router';
+import {ClientSearchPanelComponent} from './client-search-panel/client-search-panel.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
       {
         path: 'panel',
         component: ClientPanelComponent,
+      },
+      {
+        path: 'visit',
+        component: ClientSearchPanelComponent,
       }
     ]
   },
@@ -27,6 +32,7 @@ const routes: Routes = [
   declarations: [
     ClientHomeComponent,
     ClientPanelComponent,
+    ClientSearchPanelComponent,
   ],
   imports: [
     SharedModule,

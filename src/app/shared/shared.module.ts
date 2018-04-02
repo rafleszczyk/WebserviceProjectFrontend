@@ -4,12 +4,14 @@ import {HomePageComponent} from './home-page/home-page.component';
 import {SideNavigationComponent} from './side-navigation/side-navigation.component';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
+import {SearchTabComponent} from './search-tab/search-tab.component';
 
 @NgModule({
   declarations: [
     PageNotFoundComponent,
     HomePageComponent,
     SideNavigationComponent,
+    SearchTabComponent,
   ],
   imports: [
     CommonModule,
@@ -19,6 +21,7 @@ import {RouterModule} from '@angular/router';
     PageNotFoundComponent,
     HomePageComponent,
     SideNavigationComponent,
+    SearchTabComponent,
   ],
   providers: [],
 
