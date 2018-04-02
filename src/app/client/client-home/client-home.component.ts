@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {ISideNavigation} from '../../shared/side-navigation/side-navigation.interface';
-import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-client-home',
@@ -12,8 +11,7 @@ export class ClientHomeComponent {
   sideNavMetadata: ISideNavigation[];
   breadcrumb: string;
 
-  constructor(private test: ActivatedRoute) {
-    this.breadcrumb = '';
+  constructor() {
     this.buildSideNavigation();
   }
 
