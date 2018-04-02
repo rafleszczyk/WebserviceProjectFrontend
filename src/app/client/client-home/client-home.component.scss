@@ -12,8 +12,12 @@
   line-height: 55px;
 }
 
-.side-menu-wrapper, .router-outlet-wrapper {
+.side-menu-wrapper, .outlet-wrapper {
   height: calc(100vh - 55px);
+}
+
+.router-outlet-wrapper {
+  height: 100%;
 }
 
 .side-menu-wrapper {

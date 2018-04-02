@@ -12,13 +12,13 @@
     </li>
   </div>
 </ul>
-<div class="d-flex">
-  <div class="side-menu-wrapper bg-light">
+<div class="d-flex outlet-wrapper">
+  <div class="side-menu-wrapper">
     <app-side-navigation [sideNavMetadata]="sideNavMetadata"></app-side-navigation>
   </div>
   <div class="d-flex flex-column">
     <app-breadcrumb></app-breadcrumb>
-    <div class="router-outlet-wrapper">
+    <div class="router-outlet-wrapper bg-light">
       <router-outlet></router-outlet>
     </div>
   </div>

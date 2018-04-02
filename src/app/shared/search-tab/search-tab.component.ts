@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './search-tab.component.html',
   styleUrls: ['./search-tab.component.scss']
 })
-export class SearchTabComponent {}
+export class SearchTabComponent {
+
+}

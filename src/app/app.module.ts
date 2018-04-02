@@ -6,6 +6,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {PageNotFoundComponent} from './shared/page-not-found/page-not-found.component';
 import {HomePageComponent} from './shared/home-page/home-page.component';
 import {ClientModule} from './client/client.module';
+import {WorkshopService} from './services/workshop.service';
+import {HttpClientModule} from '@angular/common/http';
 
 
 const routes: Routes = [
@@ -22,11 +24,12 @@ const routes: Routes = [
   imports: [
     ClientModule,
     BrowserModule,
+    HttpClientModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(routes),
   ],
   exports: [],
-  providers: [],
+  providers: [WorkshopService],
   bootstrap: [AppComponent],
 })
 export class AppModule {

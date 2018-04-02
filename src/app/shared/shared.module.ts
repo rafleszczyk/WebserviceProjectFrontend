@@ -6,6 +6,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {SearchTabComponent} from './search-tab/search-tab.component';
 import {BreadcrumbComponent} from './breadcrumb/breadcrumb.component';
+import {WorkstationTableComponent} from './workstation-table/workstation-table.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import {BreadcrumbComponent} from './breadcrumb/breadcrumb.component';
     SideNavigationComponent,
     SearchTabComponent,
     BreadcrumbComponent,
+    WorkstationTableComponent,
   ],
   imports: [
     CommonModule,
@@ -25,6 +27,7 @@ import {BreadcrumbComponent} from './breadcrumb/breadcrumb.component';
     SideNavigationComponent,
     SearchTabComponent,
     BreadcrumbComponent,
+    WorkstationTableComponent,
   ],
   providers: [],
 

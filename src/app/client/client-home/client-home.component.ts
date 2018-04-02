@@ -9,7 +9,6 @@ import {ISideNavigation} from '../../shared/side-navigation/side-navigation.inte
 
 export class ClientHomeComponent {
   sideNavMetadata: ISideNavigation[];
-  breadcrumb: string;
 
   constructor() {
     this.buildSideNavigation();

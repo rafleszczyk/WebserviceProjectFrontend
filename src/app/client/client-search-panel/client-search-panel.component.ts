@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {WorkshopService} from '../../services/workshop.service';
 
 @Component({
   selector: 'app-client-search-panel',
@@ -8,6 +9,7 @@ import {Component} from '@angular/core';
 
 export class ClientSearchPanelComponent {
 
-  constructor() {}
-
+  constructor(private _workshopsService: WorkshopService) {
+    this._workshopsService.getWorkshops().subscribe((data) => console.log(data));
+  }
 }
