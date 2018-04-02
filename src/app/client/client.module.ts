@@ -4,6 +4,7 @@ import {ClientHomeComponent} from './client-home/client-home.component';
 import {CommonModule} from '@angular/common';
 import {ClientPanelComponent} from './client-panel/client-panel.component';
 import {RouterModule, Routes} from '@angular/router';
+import {ClientSearchPanelComponent} from './client-search-panel/client-search-panel.component';
 
 const routes: Routes = [
   {
@@ -14,10 +15,23 @@ const routes: Routes = [
   {
     path: 'home/client',
     component: ClientHomeComponent,
+    data: {
+      breadcrumbName: 'Home',
+    },
     children: [
       {
         path: 'panel',
         component: ClientPanelComponent,
+        data: {
+          breadcrumbName: 'Panel',
+        }
+      },
+      {
+        path: 'visit',
+        component: ClientSearchPanelComponent,
+        data: {
+          breadcrumbName: 'Search Workstation',
+        }
       }
     ]
   },
@@ -27,6 +41,7 @@ const routes: Routes = [
   declarations: [
     ClientHomeComponent,
     ClientPanelComponent,
+    ClientSearchPanelComponent,
   ],
   imports: [
     SharedModule,
