@@ -1,21 +1,20 @@
-<div class="card">
+<div class="card panel">
   <div class="card-header">
     Workstations
   </div>
   <div class="card-body">
-    <table class="table table-hover">
+    <table *ngIf="workshopsList.length; else noData" class="table table-hover">
       <tbody>
-      <tr>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
+      <tr *ngFor="let workshop of workshopsList">
+        <td>{{workshop.Workshop_address_city}}, {{workshop.Workshop_address_streer}} {{workshop.Workshop_address_zip_code}}
+        </td>
       </tr>
       </tbody>
     </table>
+    <ng-template #noData>
+      <div class="text-muted d-flex justify-content-center">
+        No results
+      </div>
+    </ng-template>
   </div>
 </div>

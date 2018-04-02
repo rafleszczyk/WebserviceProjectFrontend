@@ -1,5 +1,9 @@
-<app-search-tab></app-search-tab>
-<div class="panel-element-below">
-
-  <app-workstation-table></app-workstation-table>
+<app-search-tab (searchParams)="getWorkshops($event)"></app-search-tab>
+<div class="margin-top row">
+  <div class="col">
+    <app-workstation-table [workshopsList]="workshopsList"></app-workstation-table>
+  </div>
+  <div class="col-4">
+    <app-google-map></app-google-map>
+  </div>
 </div>

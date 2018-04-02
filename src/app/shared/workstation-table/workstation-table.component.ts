@@ -7,7 +7,7 @@ import {IWorkshop} from '../../../assets/models/workshop.interface';
   styleUrls: ['./workstation-table.component.scss']
 })
 export class WorkstationTableComponent {
-  @Input() workshopList: IWorkshop[];
+  @Input() workshopsList: IWorkshop[];
   @Output() selectedWorkshopId: number;
 
   constructor(){}

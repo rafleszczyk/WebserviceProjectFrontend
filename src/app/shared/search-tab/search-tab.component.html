@@ -3,12 +3,13 @@
     Search for workstation
   </div>
   <div class="card-body">
+    <form [formGroup]="searchForm" (ngSubmit)="search()">
       <div class="form-group m-0 row">
         <div class="col">
           <div class="row">
             <label for="workshopName" class="col-sm-2 col-form-label">Name:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="workshopName" placeholder="e.g. Happy mechanics">
+              <input type="text" class="form-control" id="workshopName" placeholder="e.g. Happy mechanics" formControlName="name">
             </div>
           </div>
         </div>
@@ -16,11 +17,12 @@
           <div class="row">
             <label for="workshopLocalization" class="col-sm-2 col-form-label">City:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="workshopLocalization" placeholder="e.g. Wroclaw">
+              <input type="text" class="form-control" id="workshopLocalization" placeholder="e.g. Wroclaw" formControlName="city">
             </div>
           </div>
         </div>
-        <button class="btn btn-light col-2">Search!</button>
+        <button class="btn btn-light col-2" type="submit" [disabled]="searchForm.invalid">Search!</button>
       </div>
-    </div>
+    </form>
+  </div>
 </div>

@@ -7,6 +7,8 @@ import {RouterModule} from '@angular/router';
 import {SearchTabComponent} from './search-tab/search-tab.component';
 import {BreadcrumbComponent} from './breadcrumb/breadcrumb.component';
 import {WorkstationTableComponent} from './workstation-table/workstation-table.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {GoogleMapComponent} from './google-map/google-map.component';
 
 @NgModule({
   declarations: [
@@ -16,10 +18,12 @@ import {WorkstationTableComponent} from './workstation-table/workstation-table.c
     SearchTabComponent,
     BreadcrumbComponent,
     WorkstationTableComponent,
+    GoogleMapComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
+    ReactiveFormsModule,
   ],
   exports: [
     PageNotFoundComponent,
@@ -28,6 +32,7 @@ import {WorkstationTableComponent} from './workstation-table/workstation-table.c
     SearchTabComponent,
     BreadcrumbComponent,
     WorkstationTableComponent,
+    GoogleMapComponent,
   ],
   providers: [],
 

@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {WorkshopService} from '../../services/workshop.service';
+import {IWorkshop} from '../../../assets/models/workshop.interface';
 
 @Component({
   selector: 'app-client-search-panel',
@@ -9,7 +10,13 @@ import {WorkshopService} from '../../services/workshop.service';
 
 export class ClientSearchPanelComponent {
 
+  workshopsList: IWorkshop[];
+
   constructor(private _workshopsService: WorkshopService) {
-    this._workshopsService.getWorkshops().subscribe((data) => console.log(data));
+    this.workshopsList = [];
+  }
+
+  getWorkshops(params) {
+    this._workshopsService.getWorkshops().subscribe((data) => this.workshopsList = data);
   }
 }
