@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -7,6 +7,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./search-tab.component.scss']
 })
 export class SearchTabComponent {
+  @Input() cities: string[];
   @Output() searchParams: EventEmitter<any> = new EventEmitter<any>();
   searchForm: FormGroup;
 
@@ -16,7 +17,7 @@ export class SearchTabComponent {
 
   buildForm() {
     this.searchForm = this._formBuilder.group({
-      name: ['', Validators.required],
+      name: [''],
       city: ['', Validators.required],
     });
   }
@@ -24,6 +25,8 @@ export class SearchTabComponent {
   search() {
     if (this.searchForm.valid) {
       this.searchParams.emit(this.buildSearchObject(this.searchForm));
+    } else {
+      Object.keys(this.searchForm.controls).forEach((control: string) => this.searchForm.controls[control].markAsTouched());
     }
   }
 

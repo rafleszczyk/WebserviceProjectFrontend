@@ -9,7 +9,8 @@
           <div class="row">
             <label for="workshopName" class="col-sm-2 col-form-label">Name:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="workshopName" placeholder="e.g. Happy mechanics" formControlName="name">
+              <input type="text" class="form-control" id="workshopName" placeholder="e.g. Happy mechanics"
+                     formControlName="name">
             </div>
           </div>
         </div>
@@ -17,11 +18,17 @@
           <div class="row">
             <label for="workshopLocalization" class="col-sm-2 col-form-label">City:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="workshopLocalization" placeholder="e.g. Wroclaw" formControlName="city">
+              <select class="form-control" id="workshopLocalization" formControlName="city">
+                <option></option>
+                <option *ngFor="let city of cities">{{city}}</option>
+              </select>
+              <p class="small error" *ngIf="searchForm.get('city').hasError('required') && searchForm.get('city').touched">
+                Selecting a city is required
+              </p>
             </div>
           </div>
         </div>
-        <button class="btn btn-light col-2" type="submit" [disabled]="searchForm.invalid">Search!</button>
+        <button class="btn btn-light col-2" type="submit">Search!</button>
       </div>
     </form>
   </div>

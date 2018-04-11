@@ -1,4 +1,4 @@
-<app-search-tab (searchParams)="getWorkshops($event)"></app-search-tab>
+<app-search-tab (searchParams)="getWorkshops($event)" [cities]="cities"></app-search-tab>
 <div class="margin-top row">
   <div class="col">
     <app-workstation-table [workshopsList]="workshopsList"></app-workstation-table>

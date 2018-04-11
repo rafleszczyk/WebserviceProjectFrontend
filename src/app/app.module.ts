@@ -8,6 +8,7 @@ import {HomePageComponent} from './shared/home-page/home-page.component';
 import {ClientModule} from './client/client.module';
 import {WorkshopService} from './services/workshop.service';
 import {HttpClientModule} from '@angular/common/http';
+import {DropdownsService} from './services/dropdowns.service';
 
 
 const routes: Routes = [
@@ -29,7 +30,10 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
   ],
   exports: [],
-  providers: [WorkshopService],
+  providers: [
+    WorkshopService,
+    DropdownsService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {

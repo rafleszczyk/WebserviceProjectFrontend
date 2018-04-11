@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  baseUrl: ''
+  baseUrl: 'http://itappcarworkshopservice.azurewebsites.net/api/'
 };

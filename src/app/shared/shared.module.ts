@@ -9,6 +9,8 @@ import {BreadcrumbComponent} from './breadcrumb/breadcrumb.component';
 import {WorkstationTableComponent} from './workstation-table/workstation-table.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {GoogleMapComponent} from './google-map/google-map.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import {GoogleMapComponent} from './google-map/google-map.component';
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
+    NgbModule,
+    FormsModule
   ],
   exports: [
     PageNotFoundComponent,
