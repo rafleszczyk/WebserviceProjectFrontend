@@ -1,6 +1,9 @@
 export interface IWorkshop {
-  Workshop_ID: string;
+  Workshop_ID: number;
   Workshop_NIP: string;
+  latitude: number;
+  name: string;
+  longitude: number;
   Workshop_address_city: string;
   Workshop_address_streer: string;
   Workshop_address_zip_code: string;

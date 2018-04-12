@@ -30,7 +30,7 @@ const routes: Routes = [
         path: 'visit',
         component: ClientSearchPanelComponent,
         data: {
-          breadcrumbName: 'Search Workstation',
+          breadcrumbName: 'Search Workshop',
         }
       }
     ]

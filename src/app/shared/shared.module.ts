@@ -6,11 +6,13 @@ import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {SearchTabComponent} from './search-tab/search-tab.component';
 import {BreadcrumbComponent} from './breadcrumb/breadcrumb.component';
-import {WorkstationTableComponent} from './workstation-table/workstation-table.component';
+import {WorkshopTableComponent} from './workshop-table/workshop-table.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {GoogleMapComponent} from './google-map/google-map.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
+import {AgmCoreModule} from '@agm/core';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,7 @@ import {FormsModule} from '@angular/forms';
     SideNavigationComponent,
     SearchTabComponent,
     BreadcrumbComponent,
-    WorkstationTableComponent,
+    WorkshopTableComponent,
     GoogleMapComponent,
   ],
   imports: [
@@ -27,6 +29,7 @@ import {FormsModule} from '@angular/forms';
     RouterModule,
     ReactiveFormsModule,
     NgbModule,
+    AgmCoreModule,
     FormsModule
   ],
   exports: [
@@ -35,7 +38,7 @@ import {FormsModule} from '@angular/forms';
     SideNavigationComponent,
     SearchTabComponent,
     BreadcrumbComponent,
-    WorkstationTableComponent,
+    WorkshopTableComponent,
     GoogleMapComponent,
   ],
   providers: [],

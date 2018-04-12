@@ -3,6 +3,16 @@
     Map
   </div>
   <div class="card-body">
-    map
+    <agm-map [latitude]="currentLocation ? currentLocation.latitude : 52.231626" [longitude]="currentLocation ? currentLocation.longitude : 21.005995" [zoom]="15">
+      <agm-marker (markerClick)="selectLocation(workshop.Workshop_ID)"
+                  *ngFor="let workshop of workshopsList"
+                  [latitude]="workshop.latitude"
+                  [longitude]="workshop.longitude">
+        <agm-info-window>
+          {{workshop.name}}<br>
+          {{workshop.Workshop_address_streer}}, {{workshop.Workshop_address_zip_code}} {{workshop.Workshop_address_city}}
+        </agm-info-window>
+      </agm-marker>
+    </agm-map>
   </div>
 </div>
