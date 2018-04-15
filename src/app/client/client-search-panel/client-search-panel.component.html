@@ -1,10 +1,19 @@
 <app-search-tab (searchParams)="getWorkshops($event)" [cities]="cities"></app-search-tab>
 <div class="margin-top row h-75">
   <div class="col">
-    <app-workshop-table [workshopsList]="workshopsList" [selectedWorkshopId]="selectedWorkshopId" (newSelectedWorkshopId)="setSelectedWorkshop($event)"></app-workshop-table>
+    <app-workshop-table
+      [workshopsList]="workshopsList"
+      [selectedWorkshopId]="selectedWorkshopId"
+      (newSelectedWorkshopId)="setSelectedWorkshop($event)"></app-workshop-table>
   </div>
   <div class="col-4 d-flex flex-column align-items-stretch">
-    <app-google-map [workshopsList]="workshopsList" [selectedWorkshopId]="selectedWorkshopId" (selectWorkshop)="setSelectedWorkshop($event)"></app-google-map>
-    <button class="btn very-nice-btn flex-child-growth" [disabled]="selectedWorkshopId === -1">Select this workshop!</button>
-  </div>
+    <app-google-map
+      [workshopsList]="workshopsList"
+      [selectedWorkshopId]="selectedWorkshopId"
+      (selectWorkshop)="setSelectedWorkshop($event)"></app-google-map>
+    <button
+      class="btn very-nice-btn flex-child-growth"
+      routerLink="details"
+      [disabled]="selectedWorkshopId === -1"
+      (click)="setWorkshopAsSelected()">Select this workshop!</button></div>
 </div>

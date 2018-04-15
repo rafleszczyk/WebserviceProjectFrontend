@@ -3,6 +3,7 @@ import {WorkshopService} from '../../services/workshop.service';
 import {IWorkshop} from '../../../assets/models/workshop.interface';
 import {DropdownsService} from '../../services/dropdowns.service';
 import 'rxjs/add/operator/do';
+import {ICity} from '../../../assets/models/city.interface';
 
 @Component({
   selector: 'app-client-search-panel',
@@ -14,7 +15,7 @@ export class ClientSearchPanelComponent implements OnInit {
 
   selectedWorkshopId: number;
   workshopsList: IWorkshop[];
-  cities: string[];
+  cities: ICity[];
 
   constructor(private _workshopsService: WorkshopService,
               private _dropdownService: DropdownsService) {
@@ -36,12 +37,18 @@ export class ClientSearchPanelComponent implements OnInit {
     this._workshopsService.getWorkshops()
       .subscribe((data: IWorkshop[]) => {
         this.workshopsList = data;
-        this.selectedWorkshopId = data[0].Workshop_ID;
+        this.selectedWorkshopId = data[0].WorkshopID;
       });
   }
 
+  setWorkshopAsSelected() {
+    this._workshopsService.setWorkshop(
+      this.workshopsList.find((workshop: IWorkshop) => workshop.WorkshopID === this.selectedWorkshopId)
+    );
+  }
+
   getCities() {
-    this._dropdownService.getCities().subscribe((data: string[]) => {
+    this._dropdownService.getCities().subscribe((data: ICity[]) => {
         this.cities = data;
       }
     );

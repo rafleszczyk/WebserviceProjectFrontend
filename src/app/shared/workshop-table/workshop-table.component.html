@@ -13,13 +13,13 @@
       </thead>
       <tbody>
       <tr *ngFor="let workshop of workshopsList"
-          (click)="selectWorkshop(workshop.Workshop_ID)"
-          [ngClass]="{'active-tab-color': selectedWorkshopId === workshop.Workshop_ID}">
-        <td>{{workshop.name}}</td>
-        <td>{{workshop.Workshop_address_streer}}, {{workshop.Workshop_address_city}}
-          {{workshop.Workshop_address_zip_code}}
+          (click)="selectWorkshop(workshop.WorkshopID)"
+          [ngClass]="{'active-tab-color': selectedWorkshopId === workshop.WorkshopID}">
+        <td>{{workshop.WorkshopName}}</td>
+        <td>{{workshop.WorkshopAddressStreet}}, {{workshop.WorkshopAddressCity}}
+          {{workshop.WorkshopAddressZipCode}}
         </td>
-        <td>{{workshop.Workshop_average_rating}}/5</td>
+        <td>{{workshop.WorkshopAverageRating}}/5</td>
       </tr>
       </tbody>
     </table>

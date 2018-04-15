@@ -21,12 +21,12 @@ export class GoogleMapComponent implements OnChanges, OnInit {
 
   ngOnChanges(changes: SimpleChanges) {
     if (this.workshopsList.length > 0) {
-      this.currentLocation = this.workshopsList.find((workshop: IWorkshop) => workshop.Workshop_ID === this.selectedWorkshopId);
+      this.currentLocation = this.workshopsList.find((workshop: IWorkshop) => workshop.WorkshopID === this.selectedWorkshopId);
     }
   }
 
   selectLocation(workshopId: number) {
     this.selectWorkshop.emit(workshopId);
-    this.currentLocation = this.workshopsList.find((workshop: IWorkshop) => workshop.Workshop_ID === workshopId);
+    this.currentLocation = this.workshopsList.find((workshop: IWorkshop) => workshop.WorkshopID === workshopId);
   }
 }
