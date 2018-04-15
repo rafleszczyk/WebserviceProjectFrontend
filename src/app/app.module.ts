@@ -1,4 +1,4 @@
-import { PanelClientService } from './services/panel-client.service';
+import {PanelClientService} from './services/panel-client.service';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -11,13 +11,14 @@ import {WorkshopService} from './services/workshop.service';
 import {HttpClientModule} from '@angular/common/http';
 import {DropdownsService} from './services/dropdowns.service';
 import {AgmCoreModule} from '@agm/core';
-import { StarRatingModule } from 'angular-star-rating';
+import {StarRatingModule} from 'angular-star-rating';
+import {LoginComponent} from './shared/login/login.component';
 
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'home/login', component: LoginComponent},
   {path: 'home', component: HomePageComponent},
-  // { path: 'login', component: LoginComponent },
   {path: '**', component: PageNotFoundComponent}
 ];
 

@@ -15,6 +15,7 @@ import {AgmCoreModule} from '@agm/core';
 import {WorkshopDetailsComponent} from './workshop-details/workshop-details.component';
 import {CommentsTableComponent} from './comments-table/comments-table.component';
 import {DateTimeSelectComponent} from './date-time-select/date-time-select.component';
+import {LoginComponent} from './login/login.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import {DateTimeSelectComponent} from './date-time-select/date-time-select.compo
     WorkshopDetailsComponent,
     CommentsTableComponent,
     DateTimeSelectComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
@@ -49,6 +51,7 @@ import {DateTimeSelectComponent} from './date-time-select/date-time-select.compo
     WorkshopDetailsComponent,
     CommentsTableComponent,
     DateTimeSelectComponent,
+    LoginComponent,
   ],
   providers: [],
 
