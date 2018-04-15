@@ -1,0 +1,89 @@
+<div class="background-img"></div>
+<div class="overlay"></div>
+<div class="center-xy">
+  <div class="login-panel">
+    <div class="row h-100">
+      <div class="col-6">
+        <div class="logo-holder">
+          <img src="assets/images/Logo-blue.png" alt="">
+        </div>
+      </div>
+      <div class="col-6">
+        <ngb-tabset>
+          <ngb-tab title="Client">
+            <ng-template ngbTabContent>
+              <div class="tab-border">
+                <form [formGroup]="loginUserForm" (ngSubmit)="loginUser()">
+                  <div class="px-4 py-4">
+                    <div class="form-group">
+                      <label for="login">Login</label>
+                      <input type="text" class="form-control" id="login"
+                             placeholder="Happy user :)" formControlName="login">
+                      <p class="small error"
+                         *ngIf="loginUserForm.get('login').hasError('required') && loginUserForm.get('login').touched">
+                        Selecting a city is required
+                      </p>
+                    </div>
+                    <div class="form-group mt-2">
+                      <label for="passwordClient">Password</label>
+                      <input type="password" class="form-control" id="passwordClient" placeholder="Secret password"
+                             formControlName="password">
+                      <p class="small error"
+                         *ngIf="loginUserForm.get('password').hasError('required') && loginUserForm.get('password').touched">
+                        Selecting a city is required
+                      </p>
+                    </div>
+                    <div class="form-check mt-1">
+                      <input type="checkbox" class="form-check-input" id="remmemberClient">
+                      <label class="form-check-label" for="remmemberClient">Remmember me!</label>
+                    </div>
+                    <div class="d-flex justify-content-between mt-4">
+                      <span class="small">Forgot password?</span>
+                      <button class="btn my-btn w-25" type="submit">Login</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab title="Mechanic">
+            <ng-template ngbTabContent>
+              <div class="tab-border">
+                <form [formGroup]="loginMechanicForm" (ngSubmit)="loginMechanic()">
+                  <div class="px-4 py-4">
+                    <div class="form-group">
+                      <label for="login">NIP</label>
+                      <input type="text" class="form-control" id="nip" formControlName="nip"
+                             placeholder="NIP">
+                      <p class="small error"
+                         *ngIf="loginMechanicForm.get('nip').hasError('required') && loginMechanicForm.get('nip').touched">
+                        Selecting a city is required
+                      </p>
+                    </div>
+                    <div class="form-group mt-2">
+                      <label for="password">Password</label>
+                      <input type="password" class="form-control" id="password" placeholder="Secret password"
+                             formControlName="password">
+                      <p class="small error"
+                         *ngIf="loginMechanicForm.get('password').hasError('required') && loginMechanicForm.get('password').touched">
+                        Selecting a city is required
+                      </p>
+                    </div>
+                    <div class="form-check mt-1">
+                      <input type="checkbox" class="form-check-input" id="remmemberMechanic">
+                      <label class="form-check-label" for="remmemberMechanic">Remmember me!</label>
+                    </div>
+                    <div class="d-flex justify-content-between mt-4">
+                      <span class="small">Forgot password?</span>
+                      <button class="btn my-btn w-25" type="submit">Login</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+      </div>
+    </div>
+  </div>
+</div>
