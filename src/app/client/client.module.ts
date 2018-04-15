@@ -7,12 +7,14 @@ import {RouterModule, Routes} from '@angular/router';
 import {ClientSearchPanelComponent} from './client-search-panel/client-search-panel.component';
 import {ClientVisitDetailsPanelComponent} from './client-visit-details-panel/client-visit-details-panel.component';
 import {SelectedWorkshopResolver} from './resolvers/selected-workshop.resolver';
+import {AuthenticationGuard} from '../guards/authentication.guard';
+import {ClientRoleGuard} from '../guards/client-role.guard';
 
 const routes: Routes = [
   {
     path: 'home/client',
     redirectTo: '/home/client/panel',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'home/client',
@@ -20,6 +22,8 @@ const routes: Routes = [
     data: {
       breadcrumbName: 'Home',
     },
+    canActivate: [AuthenticationGuard, ClientRoleGuard],
+    canActivateChild: [AuthenticationGuard, ClientRoleGuard],
     children: [
       {
         path: 'panel',
@@ -41,7 +45,7 @@ const routes: Routes = [
         data: {
           breadcrumbName: 'Search Workshop / Plan visit',
         },
-        resolve: { workshop: SelectedWorkshopResolver }
+        resolve: {workshop: SelectedWorkshopResolver}
       }
     ]
   },

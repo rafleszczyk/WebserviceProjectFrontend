@@ -16,6 +16,9 @@ import {WorkshopDetailsComponent} from './workshop-details/workshop-details.comp
 import {CommentsTableComponent} from './comments-table/comments-table.component';
 import {DateTimeSelectComponent} from './date-time-select/date-time-select.component';
 import {LoginComponent} from './login/login.component';
+import {AuthenticationGuard} from '../guards/authentication.guard';
+import {ClientRoleGuard} from '../guards/client-role.guard';
+import {MechanicRoleGuard} from '../guards/mechanic-role.guard';
 
 
 @NgModule({
@@ -53,7 +56,11 @@ import {LoginComponent} from './login/login.component';
     DateTimeSelectComponent,
     LoginComponent,
   ],
-  providers: [],
+  providers: [
+    AuthenticationGuard,
+    ClientRoleGuard,
+    MechanicRoleGuard,
+  ],
 
 })
 export class SharedModule {

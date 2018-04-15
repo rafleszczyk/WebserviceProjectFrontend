@@ -13,7 +13,7 @@ import {DropdownsService} from './services/dropdowns.service';
 import {AgmCoreModule} from '@agm/core';
 import {StarRatingModule} from 'angular-star-rating';
 import {LoginComponent} from './shared/login/login.component';
-
+import {LoginService} from './services/login.service';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -39,9 +39,10 @@ const routes: Routes = [
   ],
   exports: [],
   providers: [
+    LoginService,
     WorkshopService,
     DropdownsService,
-    PanelClientService
+    PanelClientService,
   ],
   bootstrap: [AppComponent],
 })
