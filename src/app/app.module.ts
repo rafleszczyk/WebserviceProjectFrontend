@@ -10,6 +10,7 @@ import {ClientModule} from './client/client.module';
 import {WorkshopService} from './services/workshop.service';
 import {HttpClientModule} from '@angular/common/http';
 import {DropdownsService} from './services/dropdowns.service';
+import {AgmCoreModule} from '@agm/core';
 
 
 const routes: Routes = [
@@ -29,6 +30,9 @@ const routes: Routes = [
     HttpClientModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(routes),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAU0Huhbr8nQ-TDJjacRyJm8M-owM-AxzI'
+    })
   ],
   exports: [],
   providers: [
