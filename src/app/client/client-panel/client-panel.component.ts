@@ -1,4 +1,7 @@
-import {Component} from '@angular/core';
+import { IClient } from './../../../assets/models/client.interface';
+import { WorkshopService } from './../../services/workshop.service';
+import { PanelClientService } from './../../services/panel-client.service';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-client-panel',
@@ -6,8 +9,19 @@ import {Component} from '@angular/core';
   styleUrls: ['./client-panel.component.scss']
 })
 
-export class ClientPanelComponent {
+export class ClientPanelComponent implements OnInit {
+  client: string[];
+  constructor(private _clientPanelService: PanelClientService) {
 
-  constructor() {}
+  }
+  ngOnInit() {
+    this.getClient();
+  }
+  getClient() {
+    this._clientPanelService.getClient().subscribe(client => {
+    console.log(client);
+    this.client = client;
+    });
+  }
 
 }
