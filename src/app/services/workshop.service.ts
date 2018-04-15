@@ -4,6 +4,7 @@ import {IWorkshop} from '../../assets/models/workshop.interface';
 import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
+import {IComment} from '../../assets/models/comment.interface';
 
 
 @Injectable()
@@ -24,5 +25,9 @@ export class WorkshopService {
 
   getWorkshop() {
     return this.selectedWorkshop;
+  }
+
+  getWorkshopComments(workshopId?: number) {
+    return this._http.get<IComment[]>('assets/data/comments-mock.json');
   }
 }

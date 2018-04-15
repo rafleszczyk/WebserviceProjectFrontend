@@ -2,8 +2,12 @@
   <div class="card-header">
     Map
   </div>
-  <div class="card-body">
-    <agm-map [latitude]="currentLocation ? currentLocation.latitude : 52.231626" [longitude]="currentLocation ? currentLocation.longitude : 21.005995" [zoom]="15">
+  <div class="card-body height-100p">
+    <agm-map
+      class="height-100p"
+      [latitude]="currentLocation ? currentLocation.latitude : 52.231626"
+      [longitude]="currentLocation ? currentLocation.longitude : 21.005995"
+      [zoom]="15">
       <agm-marker (markerClick)="selectLocation(workshop.WorkshopID)"
                   *ngFor="let workshop of workshopsList"
                   [latitude]="workshop.latitude"

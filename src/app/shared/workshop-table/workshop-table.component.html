@@ -19,7 +19,17 @@
         <td>{{workshop.WorkshopAddressStreet}}, {{workshop.WorkshopAddressCity}}
           {{workshop.WorkshopAddressZipCode}}
         </td>
-        <td>{{workshop.WorkshopAverageRating}}/5</td>
+        <td>
+          <ng-template #t let-fill="fill">
+            <span class="star" [class.full]="fill === 100">
+            <span class="half" [style.width.%]="fill">
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </span>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </span>
+          </ng-template>
+          <ngb-rating [(rate)]="workshop.WorkshopAverageRating" [starTemplate]="t" [readonly]="true" max="5"></ngb-rating>
+        </td>
       </tr>
       </tbody>
     </table>

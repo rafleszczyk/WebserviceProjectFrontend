@@ -8,6 +8,7 @@
   </div>
   <div class="col-4 d-flex flex-column align-items-stretch">
     <app-google-map
+      class="h-75"
       [workshopsList]="workshopsList"
       [selectedWorkshopId]="selectedWorkshopId"
       (selectWorkshop)="setSelectedWorkshop($event)"></app-google-map>
@@ -15,5 +16,8 @@
       class="btn very-nice-btn flex-child-growth"
       routerLink="details"
       [disabled]="selectedWorkshopId === -1"
-      (click)="setWorkshopAsSelected()">Select this workshop!</button></div>
+      (click)="setWorkshopAsSelected()">Select this workshop!
+    </button>
+  </div>
 </div>
+

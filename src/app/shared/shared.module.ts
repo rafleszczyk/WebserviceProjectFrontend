@@ -13,6 +13,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
 import {AgmCoreModule} from '@agm/core';
 import {WorkshopDetailsComponent} from './workshop-details/workshop-details.component';
+import {CommentsTableComponent} from './comments-table/comments-table.component';
+import {DateTimeSelectComponent} from './date-time-select/date-time-select.component';
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import {WorkshopDetailsComponent} from './workshop-details/workshop-details.comp
     WorkshopTableComponent,
     GoogleMapComponent,
     WorkshopDetailsComponent,
+    CommentsTableComponent,
+    DateTimeSelectComponent,
   ],
   imports: [
     CommonModule,
@@ -42,7 +46,9 @@ import {WorkshopDetailsComponent} from './workshop-details/workshop-details.comp
     BreadcrumbComponent,
     WorkshopTableComponent,
     GoogleMapComponent,
-    WorkshopDetailsComponent
+    WorkshopDetailsComponent,
+    CommentsTableComponent,
+    DateTimeSelectComponent,
   ],
   providers: [],
 

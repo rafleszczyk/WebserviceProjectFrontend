@@ -11,5 +11,4 @@ export class WorkshopDetailsComponent {
 
   @Input() workshop: IWorkshop;
   constructor() {}
-
 }
