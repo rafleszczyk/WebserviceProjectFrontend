@@ -7,5 +7,5 @@ import {Component} from '@angular/core';
 })
 export class DateTimeSelectComponent {
   model;
-  time: {hour: 9, minute: 00};
+  time: {hour: 9, minute: 0};
 }
