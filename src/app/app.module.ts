@@ -1,3 +1,4 @@
+import { PanelClientService } from './services/panel-client.service';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -33,6 +34,7 @@ const routes: Routes = [
   providers: [
     WorkshopService,
     DropdownsService,
+    PanelClientService
   ],
   bootstrap: [AppComponent],
 })
