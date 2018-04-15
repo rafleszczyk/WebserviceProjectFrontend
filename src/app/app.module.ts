@@ -10,6 +10,7 @@ import {WorkshopService} from './services/workshop.service';
 import {HttpClientModule} from '@angular/common/http';
 import {DropdownsService} from './services/dropdowns.service';
 import {AgmCoreModule} from '@agm/core';
+import { StarRatingModule } from 'angular-star-rating';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
     ClientModule,
     BrowserModule,
     HttpClientModule,
+    StarRatingModule.forRoot(),
     NgbModule.forRoot(),
     RouterModule.forRoot(routes),
     AgmCoreModule.forRoot({

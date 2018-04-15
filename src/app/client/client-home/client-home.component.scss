@@ -43,3 +43,7 @@
   background-repeat: no-repeat;
 }
 
+.max-height {
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}

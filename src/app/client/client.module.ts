@@ -5,6 +5,8 @@ import {CommonModule} from '@angular/common';
 import {ClientPanelComponent} from './client-panel/client-panel.component';
 import {RouterModule, Routes} from '@angular/router';
 import {ClientSearchPanelComponent} from './client-search-panel/client-search-panel.component';
+import {ClientVisitDetailsPanelComponent} from './client-visit-details-panel/client-visit-details-panel.component';
+import {SelectedWorkshopResolver} from './resolvers/selected-workshop.resolver';
 
 const routes: Routes = [
   {
@@ -32,6 +34,14 @@ const routes: Routes = [
         data: {
           breadcrumbName: 'Search Workshop',
         }
+      },
+      {
+        path: 'visit/details',
+        component: ClientVisitDetailsPanelComponent,
+        data: {
+          breadcrumbName: 'Search Workshop / Plan visit',
+        },
+        resolve: { workshop: SelectedWorkshopResolver }
       }
     ]
   },
@@ -42,6 +52,7 @@ const routes: Routes = [
     ClientHomeComponent,
     ClientPanelComponent,
     ClientSearchPanelComponent,
+    ClientVisitDetailsPanelComponent,
   ],
   imports: [
     SharedModule,
@@ -51,7 +62,9 @@ const routes: Routes = [
   exports: [
     ClientHomeComponent,
   ],
-  providers: [],
+  providers: [
+    SelectedWorkshopResolver,
+  ],
 
 })
 export class ClientModule {

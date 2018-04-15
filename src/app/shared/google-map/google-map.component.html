@@ -2,15 +2,19 @@
   <div class="card-header">
     Map
   </div>
-  <div class="card-body">
-    <agm-map [latitude]="currentLocation ? currentLocation.latitude : 52.231626" [longitude]="currentLocation ? currentLocation.longitude : 21.005995" [zoom]="15">
-      <agm-marker (markerClick)="selectLocation(workshop.Workshop_ID)"
+  <div class="card-body height-100p">
+    <agm-map
+      class="height-100p"
+      [latitude]="currentLocation ? currentLocation.latitude : 52.231626"
+      [longitude]="currentLocation ? currentLocation.longitude : 21.005995"
+      [zoom]="15">
+      <agm-marker (markerClick)="selectLocation(workshop.WorkshopID)"
                   *ngFor="let workshop of workshopsList"
                   [latitude]="workshop.latitude"
                   [longitude]="workshop.longitude">
         <agm-info-window>
-          {{workshop.name}}<br>
-          {{workshop.Workshop_address_streer}}, {{workshop.Workshop_address_zip_code}} {{workshop.Workshop_address_city}}
+          {{workshop.WorkshopName}}<br>
+          {{workshop.WorkshopAddressStreet}}, {{workshop.WorkshopAddressZipCode}} {{workshop.WorkshopAddressCity}}
         </agm-info-window>
       </agm-marker>
     </agm-map>

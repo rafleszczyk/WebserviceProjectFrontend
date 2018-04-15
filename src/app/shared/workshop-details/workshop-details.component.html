@@ -1,0 +1,51 @@
+<div class="card">
+  <div class="card-header">
+    Workshop details
+  </div>
+  <div class="card-body">
+    <div class="d-flex justify-content-between">
+      <h4>{{workshop.WorkshopName}}</h4>
+      <div>
+        <ng-template #t let-fill="fill">
+          <span class="star" [class.full]="fill === 100">
+          <span class="half" [style.width.%]="fill"><i class="fa fa-star" aria-hidden="true"></i>
+</span><i class="fa fa-star" aria-hidden="true"></i>
+
+          </span>
+        </ng-template>
+        <ngb-rating [(rate)]="workshop.WorkshopAverageRating" [starTemplate]="t" [readonly]="true" max="5"></ngb-rating>
+      </div>
+    </div>
+    <table class="table table-hover table-sm m-0">
+      <tbody>
+      <tr>
+        <td>NIP:</td>
+        <td>{{workshop.WorkshopNIP}}</td>
+      </tr>
+      <tr>
+        <td>Address:</td>
+        <td>{{workshop.WorkshopAddressStreet}}, {{workshop.WorkshopAddressZipCode}} {{workshop.WorkshopAddressCity}}
+        </td>
+      </tr>
+      <tr>
+        <td>Contact:</td>
+        <td>
+          Email: {{workshop.WorkshopEmailAddress}}
+          <br>
+          Telefon: {{workshop.WorkshopPhoneNumber}}
+        </td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+          <div class="description-field">{{workshop.WorkshopDescription}}</div>
+        </td>
+      </tr>
+      <tr>
+        <td>Visit us on:</td>
+        <td>{{workshop.WorkshopURL}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
