@@ -29,7 +29,7 @@ const routes: Routes = [
         path: 'panel',
         component: ClientPanelComponent,
         data: {
-          breadcrumbName: 'Panel',
+          breadcrumbName: 'Profile',
         }
       },
       {

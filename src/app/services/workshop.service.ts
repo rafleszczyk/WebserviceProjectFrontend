@@ -5,11 +5,12 @@ import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import {IComment} from '../../assets/models/comment.interface';
+import {ICar} from '../../assets/models/car.interface';
 
 
 @Injectable()
 export class WorkshopService {
-  private selectedWorkshop: IWorkshop ;
+  private selectedWorkshop: IWorkshop;
 
   constructor(private _http: HttpClient) {
     this.selectedWorkshop = null;
@@ -29,5 +30,13 @@ export class WorkshopService {
 
   getWorkshopComments(workshopId?: number) {
     return this._http.get<IComment[]>('assets/data/comments-mock.json');
+  }
+
+  getUserComments(userId?: number) {
+    return this._http.get<IComment[]>('assets/data/user-comments-mock.json');
+  }
+
+  getCars(): Observable<ICar[]> {
+    return this._http.get<ICar[]>('assets/data/cars-mock.json');
   }
 }

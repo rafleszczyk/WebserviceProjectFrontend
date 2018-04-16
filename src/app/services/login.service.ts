@@ -20,7 +20,7 @@ export class LoginService {
     })
       .do((response: any) => {
         this.setToken(response.Token);
-        this.setUser(response.UserID);
+        this.setUser(response.ClientID);
         this.setRole(role);
       });
   }

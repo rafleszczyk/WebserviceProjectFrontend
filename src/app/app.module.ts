@@ -15,9 +15,10 @@ import {StarRatingModule} from 'angular-star-rating';
 import {LoginComponent} from './shared/login/login.component';
 import {LoginService} from './services/login.service';
 import {AuthenticationInterceptor} from './interceptors/authentication.interceptor';
+import {WorkshopModule} from './workshop/workshop.module';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: '', redirectTo: '/home/login', pathMatch: 'full'},
   {path: 'home/login', component: LoginComponent},
   {path: 'home', component: HomePageComponent},
   {path: '**', component: PageNotFoundComponent}
@@ -29,6 +30,7 @@ const routes: Routes = [
   ],
   imports: [
     ClientModule,
+    WorkshopModule,
     BrowserModule,
     HttpClientModule,
     StarRatingModule.forRoot(),

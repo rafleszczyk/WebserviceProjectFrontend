@@ -51,7 +51,7 @@ export class LoginComponent {
         this.loginMechanicForm.controls['password'].value,
         'mechanic'
       ).subscribe(
-        () => this._router.navigate(['home/mechanic'])
+        () => this._router.navigate(['home/workshop'])
       );
     } else {
       Object.keys(this.loginMechanicForm.controls).forEach((control) => this.loginMechanicForm.get(control).markAsTouched());

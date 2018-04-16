@@ -1,1 +1,65 @@
-
+<div class="card">
+  <div class="card-header blue">
+    Client profile
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-4 col-md-2"><img class="img-fluid img-thumbnail" src="assets/images/user-img.jpg"
+                                       alt="User image"></div>
+      <div class="col">
+        <div class="d-flex flex-column">
+          <h5>Marcin Bednarek</h5>
+          <table class="table table-hover">
+            <tbody>
+            <tr>
+              <td>Telephone number:</td>
+              <td>668 895 140</td>
+            </tr>
+            <tr>
+              <td>Email:</td>
+              <td>m.bednarek@mail.com</td>
+            </tr>
+            <tr>
+              <td>Registered on:</td>
+              <td>24/02/2017</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-4">
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <div class="row d-flex justify-content-around">
+          <div class="col-3">
+            <button class="btn special-btn">
+              <span class="badge badge-pill badge-light big-font">1</span> Visit planned for today
+            </button>
+          </div>
+          <div class="col-3">
+            <button class="btn special-btn">
+              <span class="badge badge-pill badge-light big-font">2</span> Planned visits
+            </button>
+          </div>
+          <div class="col-3">
+            <button class="btn special-btn">
+              <span class="badge badge-pill badge-light big-font">6</span> Total visits
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-4">
+  <div class="col-6">
+    <app-cars-table [cars]="cars"></app-cars-table>
+  </div>
+  <div class="col-6">
+    <app-comments-table [comments]="comments"></app-comments-table>
+  </div>
+</div>

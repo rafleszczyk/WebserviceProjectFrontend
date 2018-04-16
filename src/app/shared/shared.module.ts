@@ -19,6 +19,7 @@ import {LoginComponent} from './login/login.component';
 import {AuthenticationGuard} from '../guards/authentication.guard';
 import {ClientRoleGuard} from '../guards/client-role.guard';
 import {MechanicRoleGuard} from '../guards/mechanic-role.guard';
+import {CarsTableComponent} from './cars-table/cars-table.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import {MechanicRoleGuard} from '../guards/mechanic-role.guard';
     CommentsTableComponent,
     DateTimeSelectComponent,
     LoginComponent,
+    CarsTableComponent,
   ],
   imports: [
     CommonModule,
@@ -55,6 +57,7 @@ import {MechanicRoleGuard} from '../guards/mechanic-role.guard';
     CommentsTableComponent,
     DateTimeSelectComponent,
     LoginComponent,
+    CarsTableComponent,
   ],
   providers: [
     AuthenticationGuard,
