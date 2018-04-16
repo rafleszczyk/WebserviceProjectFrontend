@@ -13,6 +13,6 @@ export class DropdownsService {
 
   getCities(): Observable<ICity[]> {
     return this._http.get<ICity[]>(`${environment.baseUrl}workshopprofiles/cities`)
-      .map((data: any) => data.sort((a, b) => a.localeCompare(b)));
+      .map((data: ICity[]) => data.sort((a, b) => a.City.localeCompare(b.City)));
   }
 }
