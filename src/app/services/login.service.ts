@@ -8,21 +8,21 @@ import {ICity} from '../../assets/models/city.interface';
 
 @Injectable()
 export class LoginService {
-  role: string;
 
   constructor(private _http: HttpClient) {
   }
 
   login(login: string, password: string, role: string): Observable<any> {
-    this.role = role;
     return this._http.post(`${environment.baseUrl}Login`, {
       UserID: 7,
       UserEmail: login,
       UserPassword: password
-    }, {
-      responseType: 'text'
     })
-      .do((response: string) => this.setTokenAndRole(response, role));
+      .do((response: any) => {
+        this.setToken(response.Token);
+        this.setUser(response.UserID);
+        this.setRole(role);
+      });
   }
 
   returnToken(): string {
@@ -33,12 +33,23 @@ export class LoginService {
     return localStorage.getItem('role');
   }
 
+  returnUser(): any {
+    return localStorage.getItem('user');
+  }
+
   logout(): void {
     localStorage.clear();
   }
 
-  setTokenAndRole(token: string, role: string): void {
+  setToken(token: string): void {
     localStorage.setItem('token', token);
+  }
+
+  setRole(role: string): void {
     localStorage.setItem('role', role);
+  }
+
+  setUser(user: any): void {
+    localStorage.setItem('user', user);
   }
 }

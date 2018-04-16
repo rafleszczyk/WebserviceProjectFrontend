@@ -17,7 +17,7 @@ export class MechanicRoleGuard implements CanActivate, CanActivateChild {
   }
 
   checkIfTokenExists() {
-    const role: string = this._loginService.role;
+    const role = this._loginService.returnRole();
     if (role === 'mechanic') {
       return true;
     } else {

@@ -34,6 +34,5 @@ export class SearchTabComponent {
   buildSearchObject(form: FormGroup) {
     const result = {};
     // Object.keys(form.controls).forEach( control => result[control] = this.searchForm.controls[control])
-    console.log(form.controls);
   }
 }

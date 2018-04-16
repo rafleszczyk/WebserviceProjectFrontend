@@ -13,7 +13,6 @@ export class AuthenticationInterceptor implements HttpInterceptor {
     let authReq: HttpRequest<any> = req.clone();
     const _loginService = this._injector.get(LoginService);
     const token = _loginService.returnToken();
-console.log('<----- Interceptor triggered')
     if (token) {
       authReq = req.clone(
         {
