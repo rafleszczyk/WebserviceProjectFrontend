@@ -24,4 +24,8 @@ export class LoginService {
     })
       .do((response: string) => localStorage.setItem('token', response));
   }
+
+  returnToken(): string {
+    return localStorage.getItem('token');
+  }
 }
