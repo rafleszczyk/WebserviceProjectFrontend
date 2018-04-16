@@ -12,8 +12,8 @@
     "WorkshopLogoURL": "aa.o.pl/image",
     "WorkshopAverageRating": 3.80,
     "WorkshopName": "AutoSerwis",
-    "longitude": 17.014521,
-    "latitude": 51.111984
+    "Longtitude": 17.014521,
+    "Latitude": 51.111984
   },
   {
     "WorkshopID": 2,
@@ -28,8 +28,8 @@
     "WorkshopLogoURL": "aa.o.pl/image",
     "WorkshopAverageRating": 4.15,
     "WorkshopName": "Moto-Zbyszek",
-    "longitude": 17.023319,
-    "latitude": 51.116375
+    "Longtitude": 17.023319,
+    "Latitude": 51.116375
   },
   {
     "WorkshopID": 3,
@@ -44,7 +44,7 @@
     "WorkshopLogoURL": "aa.o.pl/image",
     "WorkshopAverageRating": 4.75,
     "WorkshopName": "AutoSerwis Kowlaski",
-    "longitude": 16.957277,
-    "latitude": 51.133918
+    "Longtitude": 16.957277,
+    "Latitude": 51.133918
   }
 ]

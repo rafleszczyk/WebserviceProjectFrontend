@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import {IComment} from '../../assets/models/comment.interface';
 import {ICar} from '../../assets/models/car.interface';
+import {environment} from '../../environments/environment';
 
 
 @Injectable()
@@ -16,8 +17,11 @@ export class WorkshopService {
     this.selectedWorkshop = null;
   }
 
-  getWorkshops(name: string = '', city: string = ''): Observable<IWorkshop[]> {
-    return this._http.get<IWorkshop[]>('assets/data/workshops-mock.json');
+  getWorkshops(data: { name: string, city: string }): Observable<any> {
+    // return this._http.get<IWorkshop[]>('assets/data/workshops-mock.json');
+    return this._http.get<IWorkshop[]>(`${environment.baseUrl}WorkshopProfiles`, {
+      params: data
+    });
   }
 
   setWorkshop(workshop: IWorkshop) {

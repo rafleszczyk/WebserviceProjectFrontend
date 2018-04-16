@@ -32,10 +32,15 @@ export class ClientSearchPanelComponent implements OnInit {
     this.selectedWorkshopId = workshopId;
   }
 
-  getWorkshops() {
+  getWorkshops(event) {
     this.workshopsList = [];
-    this._workshopsService.getWorkshops()
+    this._workshopsService.getWorkshops(event)
       .subscribe((data: IWorkshop[]) => {
+        data.forEach((el: IWorkshop) => {
+          el.Latitude = +el.Latitude;
+          el.Longtitude = +el.Longtitude;
+        });
+        console.log(data);
         this.workshopsList = data;
         this.selectedWorkshopId = data[0].WorkshopID;
       });

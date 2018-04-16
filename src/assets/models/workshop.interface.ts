@@ -11,6 +11,6 @@ export interface IWorkshop {
   WorkshopLogoURL: string;
   WorkshopAverageRating: number;
   WorkshopName: string;
-  latitude: number;
-  longitude: number;
+  Latitude: number;
+  Longtitude: number;
 }

@@ -32,7 +32,9 @@ export class SearchTabComponent {
   }
 
   buildSearchObject(form: FormGroup) {
-    const result = {};
-    // Object.keys(form.controls).forEach( control => result[control] = this.searchForm.controls[control])
+    return {
+      city: form.get('city').value,
+      name: form.get('name').value === '' ? '""' : form.get('name').value,
+    };
   }
 }
