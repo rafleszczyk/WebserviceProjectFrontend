@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header">Comments</div>
+  <div class="card-body">
+    <table class="table table-hover table-sm small m-0">
+      <tbody>
+      <tr *ngFor="let comment of comments">
+        <td class="d-flex align-items-center">{{comment.author}}</td>
+        <td>
+          <div class="d-flex justify-content-end mr-4">
+            <div class="mr-1">
+              <ng-template #t let-fill="fill">
+                  <span class="star" [class.full]="fill === 100">
+                  <span class="half" [style.width.%]="fill">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </span>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </span>
+              </ng-template>
+              <ngb-rating [(rate)]="comment.rating" [starTemplate]="t" [readonly]="true" max="5"></ngb-rating>
+            </div>
+            <span class="badge badge-pill badge-light">{{comment.date}}</span>
+          </div>
+          {{comment.text}}
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

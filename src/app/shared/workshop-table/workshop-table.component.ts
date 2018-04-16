@@ -11,7 +11,8 @@ export class WorkshopTableComponent {
   @Input() selectedWorkshopId: number;
   @Output() newSelectedWorkshopId: EventEmitter<number> = new EventEmitter<number>();
 
-  constructor(){}
+  constructor() {
+  }
 
   selectWorkshop(workshopId: number) {
     this.newSelectedWorkshopId.emit(workshopId);

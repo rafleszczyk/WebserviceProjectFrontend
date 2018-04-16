@@ -13,13 +13,23 @@
       </thead>
       <tbody>
       <tr *ngFor="let workshop of workshopsList"
-          (click)="selectWorkshop(workshop.Workshop_ID)"
-          [ngClass]="{'active-tab-color': selectedWorkshopId === workshop.Workshop_ID}">
-        <td>{{workshop.name}}</td>
-        <td>{{workshop.Workshop_address_streer}}, {{workshop.Workshop_address_city}}
-          {{workshop.Workshop_address_zip_code}}
+          (click)="selectWorkshop(workshop.WorkshopID)"
+          [ngClass]="{'active-tab-color': selectedWorkshopId === workshop.WorkshopID}">
+        <td>{{workshop.WorkshopName}}</td>
+        <td>{{workshop.WorkshopAddressStreet}}, {{workshop.WorkshopAddressCity}}
+          {{workshop.WorkshopAddressZipCode}}
         </td>
-        <td>{{workshop.Workshop_average_rating}}/5</td>
+        <td>
+          <ng-template #t let-fill="fill">
+            <span class="star" [class.full]="fill === 100">
+            <span class="half" [style.width.%]="fill">
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </span>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </span>
+          </ng-template>
+          <ngb-rating [(rate)]="workshop.WorkshopAverageRating" [starTemplate]="t" [readonly]="true" max="5"></ngb-rating>
+        </td>
       </tr>
       </tbody>
     </table>

@@ -12,6 +12,13 @@ import {GoogleMapComponent} from './google-map/google-map.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
 import {AgmCoreModule} from '@agm/core';
+import {WorkshopDetailsComponent} from './workshop-details/workshop-details.component';
+import {CommentsTableComponent} from './comments-table/comments-table.component';
+import {DateTimeSelectComponent} from './date-time-select/date-time-select.component';
+import {LoginComponent} from './login/login.component';
+import {AuthenticationGuard} from '../guards/authentication.guard';
+import {ClientRoleGuard} from '../guards/client-role.guard';
+import {MechanicRoleGuard} from '../guards/mechanic-role.guard';
 
 
 @NgModule({
@@ -23,6 +30,10 @@ import {AgmCoreModule} from '@agm/core';
     BreadcrumbComponent,
     WorkshopTableComponent,
     GoogleMapComponent,
+    WorkshopDetailsComponent,
+    CommentsTableComponent,
+    DateTimeSelectComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
@@ -40,8 +51,16 @@ import {AgmCoreModule} from '@agm/core';
     BreadcrumbComponent,
     WorkshopTableComponent,
     GoogleMapComponent,
+    WorkshopDetailsComponent,
+    CommentsTableComponent,
+    DateTimeSelectComponent,
+    LoginComponent,
   ],
-  providers: [],
+  providers: [
+    AuthenticationGuard,
+    ClientRoleGuard,
+    MechanicRoleGuard,
+  ],
 
 })
 export class SharedModule {

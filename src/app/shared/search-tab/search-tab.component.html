@@ -20,7 +20,7 @@
             <div class="col-sm-10">
               <select class="form-control" id="workshopLocalization" formControlName="city">
                 <option></option>
-                <option *ngFor="let city of cities">{{city}}</option>
+                <option *ngFor="let city of cities" [ngValue]="city.City">{{city.City}}</option>
               </select>
               <p class="small error" *ngIf="searchForm.get('city').hasError('required') && searchForm.get('city').touched">
                 Selecting a city is required

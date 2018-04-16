@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ICity} from '../../../assets/models/city.interface';
 
 @Component({
   selector: 'app-search-tab',
@@ -7,7 +8,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./search-tab.component.scss']
 })
 export class SearchTabComponent {
-  @Input() cities: string[];
+  @Input() cities: ICity[];
   @Output() searchParams: EventEmitter<any> = new EventEmitter<any>();
   searchForm: FormGroup;
 
@@ -33,6 +34,5 @@ export class SearchTabComponent {
   buildSearchObject(form: FormGroup) {
     const result = {};
     // Object.keys(form.controls).forEach( control => result[control] = this.searchForm.controls[control])
-    console.log(form.controls);
   }
 }

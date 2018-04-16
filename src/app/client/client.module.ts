@@ -5,12 +5,16 @@ import {CommonModule} from '@angular/common';
 import {ClientPanelComponent} from './client-panel/client-panel.component';
 import {RouterModule, Routes} from '@angular/router';
 import {ClientSearchPanelComponent} from './client-search-panel/client-search-panel.component';
+import {ClientVisitDetailsPanelComponent} from './client-visit-details-panel/client-visit-details-panel.component';
+import {SelectedWorkshopResolver} from './resolvers/selected-workshop.resolver';
+import {AuthenticationGuard} from '../guards/authentication.guard';
+import {ClientRoleGuard} from '../guards/client-role.guard';
 
 const routes: Routes = [
   {
     path: 'home/client',
     redirectTo: '/home/client/panel',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'home/client',
@@ -18,6 +22,8 @@ const routes: Routes = [
     data: {
       breadcrumbName: 'Home',
     },
+    canActivate: [AuthenticationGuard, ClientRoleGuard],
+    canActivateChild: [AuthenticationGuard, ClientRoleGuard],
     children: [
       {
         path: 'panel',
@@ -32,6 +38,14 @@ const routes: Routes = [
         data: {
           breadcrumbName: 'Search Workshop',
         }
+      },
+      {
+        path: 'visit/details',
+        component: ClientVisitDetailsPanelComponent,
+        data: {
+          breadcrumbName: 'Search Workshop / Plan visit',
+        },
+        resolve: {workshop: SelectedWorkshopResolver}
       }
     ]
   },
@@ -42,6 +56,7 @@ const routes: Routes = [
     ClientHomeComponent,
     ClientPanelComponent,
     ClientSearchPanelComponent,
+    ClientVisitDetailsPanelComponent,
   ],
   imports: [
     SharedModule,
@@ -51,7 +66,9 @@ const routes: Routes = [
   exports: [
     ClientHomeComponent,
   ],
-  providers: [],
+  providers: [
+    SelectedWorkshopResolver,
+  ],
 
 })
 export class ClientModule {
