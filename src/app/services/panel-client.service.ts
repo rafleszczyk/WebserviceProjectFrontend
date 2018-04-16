@@ -10,6 +10,6 @@ export class PanelClientService {
 
   getClient(): Observable<string[]> {
     // ID have to be given as input -> change it
-    return this._http.get<string[]>('http://itappcarworkshopservice.azurewebsites.net/api/ClientProfile/1');
+    return this._http.get<string[]>('http://itappcarworkshopservice.azurewebsites.net/api/ClientProfile/WithCarsFollowed?ID=1');
   }
 }
