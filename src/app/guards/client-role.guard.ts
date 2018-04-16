@@ -17,11 +17,11 @@ export class ClientRoleGuard implements CanActivate, CanActivateChild {
   }
 
   checkIfTokenExists() {
-    const role: string = this._loginService.role;
+    const role: string = this._loginService.returnRole();
     if (role === 'client') {
       return true;
     } else {
-      this._router.navigate(['home/login'])
+      this._router.navigate(['home/login']);
       return false;
     }
   }

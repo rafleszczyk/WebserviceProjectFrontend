@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {ISideNavigation} from '../../shared/side-navigation/side-navigation.interface';
+import {LoginService} from '../../services/login.service';
 
 @Component({
   selector: 'app-client-home',
@@ -10,7 +11,7 @@ import {ISideNavigation} from '../../shared/side-navigation/side-navigation.inte
 export class ClientHomeComponent {
   sideNavMetadata: ISideNavigation[];
 
-  constructor() {
+  constructor(private _loginService: LoginService) {
     this.buildSideNavigation();
   }
 
@@ -20,6 +21,10 @@ export class ClientHomeComponent {
       {name: 'Plan visit', redirectUrl: 'visit', favicon: 'fa fa-calendar'},
       {name: 'Archive', redirectUrl: 'archive', favicon: 'fa fa-archive'}
     ];
+  }
+
+  logOut() {
+    // this._loginService
   }
 
 }

@@ -22,10 +22,19 @@ export class LoginService {
     }, {
       responseType: 'text'
     })
-      .do((response: string) => localStorage.setItem('token', response));
+      .do((response: string) => this.setTokenAndRole(response, role));
   }
 
   returnToken(): string {
     return localStorage.getItem('token');
+  }
+
+  returnRole(): string {
+    return localStorage.getItem('role');
+  }
+
+  setTokenAndRole(token: string, role: string) {
+    localStorage.setItem('token', token);
+    localStorage.setItem('role', role);
   }
 }
