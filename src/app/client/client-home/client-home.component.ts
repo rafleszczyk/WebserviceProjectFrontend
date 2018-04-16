@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {ISideNavigation} from '../../shared/side-navigation/side-navigation.interface';
 import {LoginService} from '../../services/login.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-client-home',
@@ -11,7 +12,7 @@ import {LoginService} from '../../services/login.service';
 export class ClientHomeComponent {
   sideNavMetadata: ISideNavigation[];
 
-  constructor(private _loginService: LoginService) {
+  constructor(private _loginService: LoginService, private _router: Router) {
     this.buildSideNavigation();
   }
 
@@ -23,8 +24,9 @@ export class ClientHomeComponent {
     ];
   }
 
-  logOut() {
-    // this._loginService
+  logout() {
+    this._loginService.logout();
+    this._router.navigate(['home/login']);
   }
 
 }

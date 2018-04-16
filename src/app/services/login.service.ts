@@ -33,7 +33,11 @@ export class LoginService {
     return localStorage.getItem('role');
   }
 
-  setTokenAndRole(token: string, role: string) {
+  logout(): void {
+    localStorage.clear();
+  }
+
+  setTokenAndRole(token: string, role: string): void {
     localStorage.setItem('token', token);
     localStorage.setItem('role', role);
   }
