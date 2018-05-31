@@ -1,0 +1,69 @@
+<form novalidate (ngSubmit)="onSubmit(user)" [formGroup]="user">
+  <label>
+    <span>company name</span>
+    <input
+      type="text"
+      placeholder="Your company name"
+      formControlName="companyName">
+  </label>
+  <div formGroupName="account">
+    <label>
+      <span>NIP</span>
+      <input
+        type="text"
+        placeholder="Your NIP"
+        formControlName="NIP">
+    </label>
+    <label>
+      <span>city adress</span>
+      <input
+        type="text"
+        placeholder="type your city adress..."
+        formControlName="cityAdress">
+    </label>
+    <label>
+      <span>street adress</span>
+      <input
+        type="text"
+        placeholder="... street adress ..."
+        formControlName="streetAdress">
+    </label>
+    <label>
+      <span>zip code adress</span>
+      <input
+        type="text"
+        placeholder="... and zip code"
+        formControlName="zipCodeAdress">
+    </label>
+    <label>
+      <span>email adress</span>
+      <input
+        type="email"
+        placeholder="your email adress"
+        formControlName="email">
+    </label>
+    <label>
+      <span>password</span>
+      <input
+        type="password"
+        placeholder="your password"
+        formControlName="zipCodeAdress">
+    </label>
+    <label>
+      <span>phone number</span>
+      <input
+        type="text"
+        placeholder="your phone number"
+        formControlName="phoneNumber">
+    </label>
+    <label>
+      <span>URL</span>
+      <input
+        type="text"
+        placeholder="your workshop domain"
+        formControlName="URL">
+    </label>
+  
+  </div>
+  <button type="submit">Sign up</button>
+</form>
