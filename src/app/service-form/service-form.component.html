@@ -1,0 +1,47 @@
+<form novalidate (ngSubmit)="onSubmit(user)" [formGroup]="user">
+  <label>
+    <span>service ID</span>
+    <input
+      type="text"
+      placeholder=""
+      formControlName="service ID">
+  </label>
+  <div formGroupName="account">
+    <label>
+      <span> workshop ID</span>
+      <input
+        type="text"
+        placeholder=" workshopID"
+        formControlName=" workshopID">
+    </label>
+    <label>
+      <span>car ID</span>
+      <input
+        type="text"
+        placeholder=""
+        formControlName="carID">
+    </label>
+    <label>
+      <span>service name</span>
+      <input
+        type="text"
+        placeholder=""
+        formControlName="serviceName">
+    </label>
+    <label>
+      <span> date</span>
+      <input
+        type="text"
+        placeholder=""
+        formControlName=" date">
+    </label>
+    <label>
+      <span> description</span>
+      <input
+        type="text"
+        placeholder=""
+        formControlName="description">
+    </label>
+  </div>
+  <button type="submit">Sign up</button>
+</form>

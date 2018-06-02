@@ -1,0 +1,40 @@
+<form novalidate (ngSubmit)="onSubmit(user)" [formGroup]="user">
+  <label>
+    <span>Full name</span>
+    <input
+      type="text"
+      placeholder="Your full name"
+      formControlName="name">
+  </label>
+  <div formGroupName="account">
+    <label>
+      <span>Email address</span>
+      <input
+        type="email"
+        placeholder="Your email address"
+        formControlName="email">
+    </label>
+    <label>
+      <span>Confirm address</span>
+      <input
+        type="email"
+        placeholder="Confirm your email address"
+        formControlName="confirm">
+    </label>
+    <label>
+      <span>password</span>
+      <input
+        type="password"
+        placeholder="Type your password"
+        formControlName="password">
+    </label>
+    <label>
+      <span>Confirm address</span>
+      <input
+        type="phoneNumber"
+        placeholder="Type your phone number"
+        formControlName="phoneNumber">
+    </label>
+  </div>
+  <button type="submit">Sign up</button>
+</form>

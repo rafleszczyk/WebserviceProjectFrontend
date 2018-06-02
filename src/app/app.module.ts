@@ -1,5 +1,13 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+
+// import { MainTopComponent } from './main-top/main-top.component';
+// import { OffertsComponent } from './offerts/offerts.component';
+// import { AboutComponent } from './about/about.component';
+import { WorkshopSignupFormComponent } from './workshop-signup-form/workshop-signup-form.component';
+import { CarProfileComponent } from './car-profile/car-profile.component';
+import { ServiceFormComponent } from './service-form/service-form.component';
 import {PanelClientService} from './services/panel-client.service';
-import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AppComponent} from './app.component';
@@ -27,6 +35,12 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    // MainTopComponent,
+    // OffertsComponent,
+    // AboutComponent,
+    WorkshopSignupFormComponent,
+    CarProfileComponent,
+    ServiceFormComponent,
   ],
   imports: [
     ClientModule,
@@ -38,7 +52,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAU0Huhbr8nQ-TDJjacRyJm8M-owM-AxzI'
-    })
+    }),
+    ReactiveFormsModule
   ],
   exports: [],
   providers: [
