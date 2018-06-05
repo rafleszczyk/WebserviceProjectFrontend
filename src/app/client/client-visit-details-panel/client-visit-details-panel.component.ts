@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {IWorkshop} from '../../../assets/models/workshop.interface';
 import {WorkshopService} from '../../services/workshop.service';
 import {IComment} from '../../../assets/models/comment.interface';
+import {ToasterService} from 'angular2-toaster';
 
 @Component({
   selector: 'app-client-visit-details-panel',
@@ -15,7 +16,8 @@ export class ClientVisitDetailsPanelComponent implements OnInit {
   selectedWorkshop: IWorkshop;
   comments: IComment[];
 
-  constructor(private _activatedRoute: ActivatedRoute, private _workshopService: WorkshopService) {}
+  constructor(private _activatedRoute: ActivatedRoute, private _workshopService: WorkshopService, private _toasterService: ToasterService) {
+  }
 
   ngOnInit() {
     this.selectedWorkshop = this._activatedRoute.snapshot.data.workshop;
@@ -24,4 +26,8 @@ export class ClientVisitDetailsPanelComponent implements OnInit {
     );
   }
 
+
+  send() {
+    this._toasterService.pop('success', 'Reservation sent', 'Your reservation request has been sent to selected workshop');
+  }
 }

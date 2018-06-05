@@ -10,6 +10,8 @@ import {SelectedWorkshopResolver} from './resolvers/selected-workshop.resolver';
 import {AuthenticationGuard} from '../guards/authentication.guard';
 import {ClientRoleGuard} from '../guards/client-role.guard';
 import {CarsSearchComponent} from '../shared/cars-search/cars-search.component';
+import {ToasterModule} from 'angular2-toaster';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const routes: Routes = [
   {
@@ -69,6 +71,8 @@ const routes: Routes = [
   imports: [
     SharedModule,
     CommonModule,
+    ToasterModule,
+    BrowserAnimationsModule,
     RouterModule.forChild(routes),
   ],
   exports: [

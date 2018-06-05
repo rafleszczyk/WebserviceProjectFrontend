@@ -25,6 +25,7 @@ import {LoginService} from './services/login.service';
 import {AuthenticationInterceptor} from './interceptors/authentication.interceptor';
 import {WorkshopModule} from './workshop/workshop.module';
 import {CarsService} from './services/cars.service';
+import {ToasterModule} from 'angular2-toaster';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home/login', pathMatch: 'full'},
@@ -48,8 +49,9 @@ const routes: Routes = [
     WorkshopModule,
     BrowserModule,
     HttpClientModule,
-    StarRatingModule.forRoot(),
     NgbModule.forRoot(),
+    ToasterModule.forRoot(),
+    StarRatingModule.forRoot(),
     RouterModule.forRoot(routes),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAU0Huhbr8nQ-TDJjacRyJm8M-owM-AxzI'

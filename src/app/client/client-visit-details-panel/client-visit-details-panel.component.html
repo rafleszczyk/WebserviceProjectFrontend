@@ -14,6 +14,8 @@
   </div>
   <div class="col d-flex flex-column">
     <app-date-time-select></app-date-time-select>
-    <button class="very-nice-btn w-100 flex-child-growth">Create a reservation!</button>
+    <button class="very-nice-btn w-100 flex-child-growth min-height-100" (click)="send()">Create a reservation!</button>
   </div>
 </div>
+<toaster-container></toaster-container>
+

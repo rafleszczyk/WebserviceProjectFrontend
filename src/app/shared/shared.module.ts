@@ -25,6 +25,7 @@ import {CarsSearchComponent} from './cars-search/cars-search.component';
 import {CalendarModule} from 'primeng/calendar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SpinnerComponent} from './spinner/spinner.component';
+import {ToasterModule} from 'angular2-toaster';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import {SpinnerComponent} from './spinner/spinner.component';
     DataViewModule,
     CalendarModule,
     BrowserAnimationsModule,
+    ToasterModule
   ],
   exports: [
     PageNotFoundComponent,
