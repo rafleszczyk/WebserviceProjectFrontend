@@ -20,6 +20,11 @@ import {AuthenticationGuard} from '../guards/authentication.guard';
 import {ClientRoleGuard} from '../guards/client-role.guard';
 import {MechanicRoleGuard} from '../guards/mechanic-role.guard';
 import {CarsTableComponent} from './cars-table/cars-table.component';
+import {DataViewModule} from 'primeng/dataview';
+import {CarsSearchComponent} from './cars-search/cars-search.component';
+import {CalendarModule} from 'primeng/calendar';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SpinnerComponent} from './spinner/spinner.component';
 
 
 @NgModule({
@@ -36,6 +41,8 @@ import {CarsTableComponent} from './cars-table/cars-table.component';
     DateTimeSelectComponent,
     LoginComponent,
     CarsTableComponent,
+    CarsSearchComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +50,10 @@ import {CarsTableComponent} from './cars-table/cars-table.component';
     ReactiveFormsModule,
     NgbModule,
     AgmCoreModule,
-    FormsModule
+    FormsModule,
+    DataViewModule,
+    CalendarModule,
+    BrowserAnimationsModule,
   ],
   exports: [
     PageNotFoundComponent,
@@ -58,6 +68,7 @@ import {CarsTableComponent} from './cars-table/cars-table.component';
     DateTimeSelectComponent,
     LoginComponent,
     CarsTableComponent,
+    SpinnerComponent,
   ],
   providers: [
     AuthenticationGuard,

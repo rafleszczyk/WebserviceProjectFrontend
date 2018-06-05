@@ -24,6 +24,7 @@ import {LoginComponent} from './shared/login/login.component';
 import {LoginService} from './services/login.service';
 import {AuthenticationInterceptor} from './interceptors/authentication.interceptor';
 import {WorkshopModule} from './workshop/workshop.module';
+import {CarsService} from './services/cars.service';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home/login', pathMatch: 'full'},
@@ -61,6 +62,7 @@ const routes: Routes = [
     WorkshopService,
     DropdownsService,
     PanelClientService,
+    CarsService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthenticationInterceptor,

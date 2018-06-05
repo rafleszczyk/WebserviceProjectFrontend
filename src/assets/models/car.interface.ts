@@ -1,5 +1,6 @@
 export interface ICar {
-  mark: string;
+  Car_ID: number;
+  brand: string;
   model: string;
   productionYear: string;
   vin: string;

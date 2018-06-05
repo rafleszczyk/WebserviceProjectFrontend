@@ -1,0 +1,165 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card mb-3">
+        <div class="card-header blue">Filters</div>
+        <div class="card-body">
+          <div class="container-fluid">
+            <form [formGroup]="filterForm" (ngSubmit)="submitForm()">
+              <div class="d-flex flex-row flex-md-column">
+                <div class="form-group">
+                  <label for="vinNumber">VIN</label>
+                  <div class="input-group">
+                    <input type="text" id="vinNumber" class="form-control" placeholder="VIN number"
+                           aria-label="VIN number" aria-describedby="vinNumber" formControlName="vin">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button" (click)="searchByVIN()">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div *ngIf="filterForm.get('vin').touched" class="small text-danger">
+                    <span *ngIf="filterForm.get('vin').hasError('maxlength')">Invalid VIN - too long.</span>
+                    <span *ngIf="filterForm.get('vin').hasError('minlength')">Invalid VIN - too short.</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="carBrand">Brand</label>
+                  <select class="form-control" id="carBrand" (change)="getCarMarks($event.target.value)"
+                          formControlName="brand">
+                    <option></option>
+                    <option *ngFor="let brand of (brandsCollection | async)">{{brand}}</option>
+                  </select>
+                  <div *ngIf="filterForm.get('brand').touched && filterForm.get('brand').hasError('required')"
+                       class="small text-danger">
+                    Brand is required.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="carMark">Mark</label>
+                  <select class="form-control" id="carMark" formControlName="mark">
+                    <option></option>
+                    <option *ngFor="let mark of (marksCollection | async)">{{mark}}</option>
+                  </select>
+                  <div *ngIf="filterForm.get('mark').touched && filterForm.get('mark').hasError('required')"
+                       class="small text-danger">
+                    Mark is required.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="productionYear">Production year</label>
+                  <input type="number" class="form-control" id="productionYear" aria-describedby="productionYear"
+                         formControlName="productionYear"
+                         placeholder="YYYY">
+                  <div
+                    *ngIf="filterForm.get('productionYear').touched && filterForm.get('productionYear').hasError('required')"
+                    class="small text-danger">
+                    Production year is required.
+                  </div>
+                </div>
+                <button class="btn btn-light" type="submit">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                  Search
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="card">
+        <div class="card-header blue">Results</div>
+        <div class="card-body">
+          <table *ngIf="(resultsCollection | async)?.length; else noData" class="table table-hover">
+            <thead>
+            <tr>
+              <th>Brand</th>
+              <th>Model</th>
+              <th class="text-center">Production year</th>
+              <th class="text-center">VIN</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let car of (resultsCollection | async)">
+              <td class="align-middle">{{car.brand}}</td>
+              <td class="align-middle">{{car.model}}</td>
+              <td class="align-middle text-center">{{car.productionYear}}</td>
+              <td class="align-middle text-center">{{car.vin}}</td>
+              <td class="align-middle">
+                <button class="btn btn-primary" (click)="openModal(content, car)">
+                  <i class="fa fa-eye" aria-hidden="true"></i>
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <ng-template #noData>
+            <div class="text-muted d-flex justify-content-center">
+              No results
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h6 class="modal-title">Service history</h6>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click'); clearOnCLose()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div *ngIf="!!(serviceHistoryCollection | async); else loader" class="container-fluid h-100">
+      kek
+      <div class="row">
+        <div class="col">VIN: {{selectedCar.vin}}</div>
+      </div>
+      <div class="row">
+        <div class="col">Brand: {{selectedCar.brand}}</div>
+        <div class="col">Model: {{selectedCar.model}}</div>
+        <div class="col">Production year: {{selectedCar.productionYear}}</div>
+      </div>
+      <table class="table table-sm mt-4">
+        <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Mileage [km]</th>
+          <th scope="col">Title</th>
+          <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <ng-container *ngFor="let event of (serviceHistoryCollection | async); let i = index">
+          <tr>
+            <td scope="row">{{event.Service_date}}</td>
+            <td scope="row">{{event.Mileage}}</td>
+            <td scope="row">{{event.Service_name}}</td>
+            <td scope="row">
+              <button class="btn btn-primary btn-sm small" (click)="moreEventDetails(i)">
+                Details
+              </button>
+            </td>
+          </tr>
+          <span class="mx-3" *ngIf="selectedDetailsIndex === i">
+            Service description: {{event.Service_description}}
+          </span>
+        </ng-container>
+        </tbody>
+      </table>
+    </div>
+    <ng-template #loader>
+      <div class="h-100 d-flex align-items-center justify-content-center">
+        <app-shared-spinner></app-shared-spinner>
+      </div>
+    </ng-template>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click'); clearOnCLose()">Close</button>
+  </div>
+</ng-template>

@@ -9,6 +9,7 @@ import {ClientVisitDetailsPanelComponent} from './client-visit-details-panel/cli
 import {SelectedWorkshopResolver} from './resolvers/selected-workshop.resolver';
 import {AuthenticationGuard} from '../guards/authentication.guard';
 import {ClientRoleGuard} from '../guards/client-role.guard';
+import {CarsSearchComponent} from '../shared/cars-search/cars-search.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,13 @@ const routes: Routes = [
         component: ClientSearchPanelComponent,
         data: {
           breadcrumbName: 'Search Workshop',
+        }
+      },
+      {
+        path: 'search-car',
+        component: CarsSearchComponent,
+        data: {
+          breadcrumbName: 'Search Car',
         }
       },
       {

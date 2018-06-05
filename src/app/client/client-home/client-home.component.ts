@@ -20,6 +20,7 @@ export class ClientHomeComponent {
     this.sideNavMetadata = [
       {name: 'Profile', redirectUrl: 'panel', favicon: 'fa fa-user'},
       {name: 'Plan visit', redirectUrl: 'visit', favicon: 'fa fa-calendar'},
+      {name: 'Search car', redirectUrl: 'search-car', favicon: 'fa fa-search'},
       {name: 'Archive', redirectUrl: 'archive', favicon: 'fa fa-archive'}
     ];
   }
