@@ -5,6 +5,10 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ICar} from '../../../assets/models/car.interface';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ICarService} from '../../../assets/models/car-service.interface';
+import {IBrand} from '../../../assets/models/brand.interface';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/share';
 
 @Component({
   selector: 'app-cars-search',
@@ -14,13 +18,12 @@ import {ICarService} from '../../../assets/models/car-service.interface';
 export class CarsSearchComponent {
 
   historyModal: any;
-  selectedEvent: ICarService;
   selectedCar: ICar;
   filterForm: FormGroup;
   isHistoryLoaded: boolean;
   selectedDetailsIndex: number;
   marksCollection: Observable<string[]>;
-  brandsCollection: Observable<string[]>;
+  brandsCollection: IBrand[];
   resultsCollection: Observable<ICar[]>;
   serviceHistoryCollection: Observable<ICarService[]>;
 
@@ -31,7 +34,9 @@ export class CarsSearchComponent {
   }
 
   getCarBrands() {
-    this.brandsCollection = this._carsService.getBrands();
+    this._carsService.getBrands().subscribe(
+      (brands) => this.brandsCollection = brands
+    );
   }
 
   getCarMarks(brand: string) {
@@ -49,17 +54,16 @@ export class CarsSearchComponent {
     this.filterForm = this._fb.group({
       vin:            ['', [Validators.maxLength(17), Validators.minLength(17)]],
       brand:          ['', Validators.required],
-      mark:           ['', Validators.required],
-      productionYear: ['', Validators.required],
+      mark:           [''],
+      productionYear: [''],
     });
   }
 
   submitForm() {
     if (this.filterForm.valid) {
       this.getCars({
-        brand: this.filterForm.get('vin').value,
-        mark: this.filterForm.get('vin').value,
-        productionYear: this.filterForm.get('vin').value
+        brand: this.filterForm.get('brand').value,
+        productionYear: this.filterForm.get('productionYear').value
       });
     } else {
       Object.keys(this.filterForm.controls).forEach(control => this.filterForm.get(control).markAsTouched());
@@ -72,12 +76,12 @@ export class CarsSearchComponent {
 
   searchByVIN() {
     if (this.filterForm.get('vin').valid) {
-      this._carsService.getCarByVIN(this.filterForm.get('vin').value);
+      this.resultsCollection = this._carsService.getCarByVIN(this.filterForm.get('vin').value);
     }
   }
 
   getCarServiceHistory() {
-    this.serviceHistoryCollection = this._carsService.getServiceHistory(this.selectedCar.vin);
+    this.serviceHistoryCollection = this._carsService.getServiceHistory(this.selectedCar.CarID);
   }
 
   openModal(content, car: ICar) {
@@ -91,5 +95,11 @@ export class CarsSearchComponent {
   clearOnCLose() {
     this.selectedCar = null;
     this.serviceHistoryCollection = null;
+  }
+
+  getBrand(brandID: number) {
+    return this.brandsCollection
+      .filter((brand) => brand.BrandID === brandID)
+      .map(brand => brand.BrandName);
   }
 }

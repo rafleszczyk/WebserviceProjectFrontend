@@ -28,7 +28,7 @@
                   <select class="form-control" id="carBrand" (change)="getCarMarks($event.target.value)"
                           formControlName="brand">
                     <option></option>
-                    <option *ngFor="let brand of (brandsCollection | async)">{{brand}}</option>
+                    <option *ngFor="let brand of brandsCollection" [value]="brand.BrandID">{{brand.BrandName}}</option>
                   </select>
                   <div *ngIf="filterForm.get('brand').touched && filterForm.get('brand').hasError('required')"
                        class="small text-danger">
@@ -38,7 +38,7 @@
                 <div class="form-group">
                   <label for="carMark">Mark</label>
                   <select class="form-control" id="carMark" formControlName="mark">
-                    <option></option>
+                    <option>any</option>
                     <option *ngFor="let mark of (marksCollection | async)">{{mark}}</option>
                   </select>
                   <div *ngIf="filterForm.get('mark').touched && filterForm.get('mark').hasError('required')"
@@ -84,10 +84,10 @@
             </thead>
             <tbody>
             <tr *ngFor="let car of (resultsCollection | async)">
-              <td class="align-middle">{{car.brand}}</td>
-              <td class="align-middle">{{car.model}}</td>
-              <td class="align-middle text-center">{{car.productionYear}}</td>
-              <td class="align-middle text-center">{{car.vin}}</td>
+              <td class="align-middle">{{getBrand(car.BrandID)}}</td>
+              <td class="align-middle">{{car.CarModel}}</td>
+              <td class="align-middle text-center">{{car.CarProductionYear}}</td>
+              <td class="align-middle text-center">{{car.CarVINNumber}}</td>
               <td class="align-middle">
                 <button class="btn btn-primary" (click)="openModal(content, car)">
                   <i class="fa fa-eye" aria-hidden="true"></i>
@@ -116,14 +116,13 @@
   </div>
   <div class="modal-body">
     <div *ngIf="!!(serviceHistoryCollection | async); else loader" class="container-fluid h-100">
-      kek
       <div class="row">
-        <div class="col">VIN: {{selectedCar.vin}}</div>
+        <div class="col">VIN: {{selectedCar.CarVINNumber}}</div>
       </div>
       <div class="row">
-        <div class="col">Brand: {{selectedCar.brand}}</div>
-        <div class="col">Model: {{selectedCar.model}}</div>
-        <div class="col">Production year: {{selectedCar.productionYear}}</div>
+        <div class="col">Brand: {{getBrand(selectedCar.BrandID)}}</div>
+        <div class="col">Model: {{selectedCar.CarModel}}</div>
+        <div class="col">Production year: {{selectedCar.CarProductionYear}}</div>
       </div>
       <table class="table table-sm mt-4">
         <thead>
@@ -135,6 +134,7 @@
         </tr>
         </thead>
         <tbody>
+        <tr *ngIf="(serviceHistoryCollection | async).length === 0" scope="row">No registered service history</tr>
         <ng-container *ngFor="let event of (serviceHistoryCollection | async); let i = index">
           <tr>
             <td scope="row">{{event.Service_date}}</td>

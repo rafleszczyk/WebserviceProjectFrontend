@@ -1,7 +1,8 @@
 export interface ICar {
-  Car_ID: number;
-  brand: string;
-  model: string;
-  productionYear: string;
-  vin: string;
+  CarID: number;
+  BrandID: string;
+  CarModel: string;
+  CarVINNumber: string;
+  CarProductionYear: number;
+  CarFirstRegistrationYear: number;
 }
