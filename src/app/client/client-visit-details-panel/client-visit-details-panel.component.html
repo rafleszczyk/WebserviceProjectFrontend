@@ -5,16 +5,48 @@
     </app-workshop-details>
   </div>
   <div class="col">
-    <app-google-map [workshopsList]="[selectedWorkshop]" [selectedWorkshopId]="selectedWorkshop.WorkshopID"></app-google-map>
+    <app-google-map [workshopsList]="[selectedWorkshop]"
+                    [selectedWorkshopId]="selectedWorkshop.WorkshopID"></app-google-map>
   </div>
 </div>
 <div class="row margin-top">
   <div class="col-8">
     <app-comments-table [comments]="comments"></app-comments-table>
+    <div class="card mt-4">
+      <div class="card-header blue">Add new comment</div>
+      <div class="card-body container-fluid">
+        <div class="form-group mb-0">
+          <div class="row">
+            <div class="col d-flex justify-content-end">
+              <span class="mr-2">Your rating:</span>
+              <ngb-rating [(rate)]="newRating" [starTemplate]="t" max="5"></ngb-rating>
+              <ng-template #t let-fill="fill">
+                  <span class="star" [class.full]="fill === 100">
+                  <span class="half" [style.width.%]="fill">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </span>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </span>
+              </ng-template>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <textarea class="form-control" id="commentInput" #comment rows="3"></textarea>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col d-flex justify-content-end">
+              <button class="btn btn-primary" (click)="addComent(comment.value)">Add comment</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="col d-flex flex-column">
     <app-date-time-select></app-date-time-select>
-    <button class="very-nice-btn w-100 flex-child-growth min-height-100" (click)="send()">Create a reservation!</button>
+    <button class="very-nice-btn w-100 min-height-100" (click)="send()">Create a reservation!</button>
   </div>
 </div>
 <toaster-container></toaster-container>

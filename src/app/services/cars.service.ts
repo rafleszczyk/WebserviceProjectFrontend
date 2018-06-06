@@ -37,6 +37,6 @@ export class CarsService {
   }
 
   getServiceHistory(CarID: number): Observable<any> {
-    return this._http.get<ICarService[]>(`${environment.baseUrl}CarSerivce/${CarID}`);
+    return this._http.get<string[]>('assets/data/service-history-mock.json');
   }
 }

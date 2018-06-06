@@ -30,4 +30,30 @@ export class ClientVisitDetailsPanelComponent implements OnInit {
   send() {
     this._toasterService.pop('success', 'Reservation sent', 'Your reservation request has been sent to selected workshop');
   }
+
+  addComent(text: string) {
+    let today: any = new Date();
+    let dd: any = today.getDate();
+    let mm: any = today.getMonth() + 1;
+    const yyyy: any = today.getFullYear();
+
+    if (dd < 10) {
+      dd = '0' + dd;
+    }
+
+    if (mm < 10) {
+      mm = '0' + mm;
+    }
+
+    today = mm + '-' + dd + '-' + yyyy;
+
+
+    this.comments.push({
+      author: 'Marcin Bednarek',
+      date: today,
+      text: text,
+      rating: 5
+    });
+    this._toasterService.pop('success', 'Comment added!', 'Your comment has been successfully added');
+  }
 }

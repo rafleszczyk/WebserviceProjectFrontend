@@ -12,6 +12,7 @@ import {ClientRoleGuard} from '../guards/client-role.guard';
 import {CarsSearchComponent} from '../shared/cars-search/cars-search.component';
 import {ToasterModule} from 'angular2-toaster';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgbRating, NgbRatingModule} from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   {
@@ -72,6 +73,7 @@ const routes: Routes = [
     SharedModule,
     CommonModule,
     ToasterModule,
+    NgbRatingModule,
     BrowserAnimationsModule,
     RouterModule.forChild(routes),
   ],
