@@ -9,4 +9,5 @@ import {ISideNavigation} from './side-navigation.interface';
 
 export class SideNavigationComponent {
   @Input() sideNavMetadata: ISideNavigation[] = [];
+  @Input() color: string;
 }

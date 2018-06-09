@@ -8,4 +8,5 @@ import {IComment} from '../../../assets/models/comment.interface';
 })
 export class CommentsTableComponent {
   @Input() comments: IComment;
+  @Input() color: string;
 }

@@ -1,19 +1,24 @@
 <div class="card">
-  <div class="card-header blue">
-    Workshop details
+  <div class="card-header" [ngClass]="color">
+    <div class="d-flex justify-content-between align-items-center">
+      <span>Workshop details</span>
+      <button class="btn btn-light special-btn-2 btn-sm" *ngIf="enableEdit" (click)="open(content)">Edit</button>
+    </div>
   </div>
-  <div class="card-body">
+  <div class="card-body" *ngIf="!!workshop">
     <div class="d-flex justify-content-between">
       <h4>{{workshop.WorkshopName}}</h4>
       <div>
         <ng-template #t let-fill="fill">
           <span class="star" [class.full]="fill === 100">
-          <span class="half" [style.width.%]="fill"><i class="fa fa-star" aria-hidden="true"></i>
-</span><i class="fa fa-star" aria-hidden="true"></i>
-
+          <span class="half" [style.width.%]="fill"><i class="fa fa-star" aria-hidden="true"></i></span>
+            <i class="fa fa-star" aria-hidden="true"></i>
           </span>
         </ng-template>
-        <ngb-rating [(rate)]="workshop.WorkshopAverageRating" [starTemplate]="t" [readonly]="true" max="5"></ngb-rating>
+        <ngb-rating [rate]="workshop.WorkshopAverageRating"
+                    [starTemplate]="t"
+                    [readonly]="true"
+                    max="5"></ngb-rating>
       </div>
     </div>
     <table class="table table-hover table-sm m-0">
@@ -49,3 +54,95 @@
     </table>
   </div>
 </div>
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h5 class="modal-title">Edit user details</h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="email" id="name" class="form-control" #name aria-describedby="emailHelp"
+                   [value]="workshop?.WorkshopName">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="phone">Phone number</label>
+            <input type="email" id="phone" class="form-control" #phone aria-describedby="emailHelp"
+                   [value]="workshop?.WorkshopPhoneNumber">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" class="form-control" #email aria-describedby="emailHelp"
+                   [value]="workshop?.WorkshopEmailAddress">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="desc">Description</label>
+            <textarea class="form-control" id="desc" #desc aria-describedby="emailHelp"
+                      [value]="workshop?.WorkshopDescription"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="city">City</label>
+            <input class="form-control" id="city" #city aria-describedby="emailHelp"
+                   [value]="workshop?.WorkshopAddressCity">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="zipcode">Zip code</label>
+            <input class="form-control" id="zipcode" #zipcode aria-describedby="emailHelp"
+                   [value]="workshop?.WorkshopAddressZipCode">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="street">Street</label>
+            <input class="form-control" id="street" #street aria-describedby="emailHelp"
+                   [value]="workshop?.WorkshopAddressStreet">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="webUrl">Website URL</label>
+            <input class="form-control" id="webUrl" #webUrl aria-describedby="emailHelp"
+                   [value]="workshop?.WorkshopURL">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-success" (click)="saveChanges(name.value, webUrl.value, email.value, zipcode.value,
+              city.value, street.value, desc.value, phone.value)">
+      Save
+    </button>
+
+  </div>
+</ng-template>
+
+<toaster-container></toaster-container>

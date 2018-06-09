@@ -43,7 +43,13 @@
                       <label class="form-check-label" for="remmemberClient">Remmember me!</label>
                     </div>
                     <div class="d-flex justify-content-between mt-4">
-                      <span class="small">Forgot password?</span>
+                      <span class="small">
+                        Forgot password?
+                        <br>
+                        <span (click)="newCreateUser(newUser)">
+                          Create new account
+                        </span>
+                      </span>
                       <button class="btn my-btn w-25" type="submit">Login</button>
                     </div>
                   </div>
@@ -79,7 +85,13 @@
                       <label class="form-check-label" for="remmemberMechanic">Remmember me!</label>
                     </div>
                     <div class="d-flex justify-content-between mt-4">
-                      <span class="small">Forgot password?</span>
+                      <span class="small">
+                        Forgot password?
+                        <br>
+                        <span (click)="newAccount(newMech)">
+                          Create new account
+                        </span>
+                      </span>
                       <button class="btn my-btn w-25" type="submit">Login</button>
                     </div>
                   </div>
@@ -92,3 +104,136 @@
     </div>
   </div>
 </div>
+
+
+<ng-template #newMech let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h5 class="modal-title">Register new workshop</h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="email" class="form-control" placeholder="Happy Workshop">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="name">External website</label>
+            <input type="email" class="form-control" placeholder="www.happy-workshop.com">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="name">NIP</label>
+            <input type="email" class="form-control" placeholder="NIP">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="email">City</label>
+            <input type="email" class="form-control" placeholder="Location - City">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Street</label>
+            <input type="email" class="form-control" placeholder="Location - Street">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Zip code</label>
+            <input type="email" class="form-control" placeholder="Location - Zip code">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="name">Email</label>
+            <input type="email" class="form-control" placeholder="example@mail.com">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="name">Phone number</label>
+            <input type="email" class="form-control" placeholder="Phone number">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="name">Description</label>
+          <textarea class="form-control" id="commentInput" #comment rows="3"
+                    placeholder="Your company description"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-success"
+            (click)="saveChanges(name.value, surname.value, email.value, phone.value)">Create!
+    </button>
+  </div>
+</ng-template>
+
+
+<ng-template #newUser let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h5 class="modal-title">Register new user</h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label for="name">Surname</label>
+            <input type="text" class="form-control" placeholder="Your surname">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="name">Email</label>
+            <input type="email" class="form-control" placeholder="example@mail.com">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="name">Phone</label>
+            <input type="number" class="form-control" placeholder="Phone number">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-success">Create!
+    </button>
+  </div>
+</ng-template>
+
+<toaster-container></toaster-container>

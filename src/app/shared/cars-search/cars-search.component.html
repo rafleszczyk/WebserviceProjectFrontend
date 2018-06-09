@@ -89,9 +89,15 @@
               <td class="align-middle text-center">{{car.CarProductionYear}}</td>
               <td class="align-middle text-center">{{car.CarVINNumber}}</td>
               <td class="align-middle">
-                <button class="btn btn-primary" (click)="openModal(content, car)">
-                  <i class="fa fa-eye" aria-hidden="true"></i>
-                </button>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button class="btn btn-primary" (click)="openModal(content, car)">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                  </button>
+                  <button class="btn btn-success" (click)="followCar(car)">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                    Follow
+                  </button>
+                </div>
               </td>
             </tr>
             </tbody>
@@ -163,3 +169,5 @@
     <button type="button" class="btn btn-outline-dark" (click)="c('Close click'); clearOnCLose()">Close</button>
   </div>
 </ng-template>
+
+<toaster-container></toaster-container>

@@ -1,0 +1,111 @@
+<div class="card mb-4">
+  <div class="card-header" [ngClass]="color">Followed cars</div>
+  <div class="card-body">
+    <div class="row d-flex justify-content-between align-items-end">
+      <div class="col">
+        <div class="form-group m-0">
+          <label for="passwordClient">{{mode === 'workshop' ? 'Client:' : 'Workshop:'}}</label>
+          <input type="text" class="form-control" id="passwordClient"
+                 placeholder="{{mode === 'workshop' ? 'Client ' : 'Workshop '}} name">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group m-0">
+          <label for="passwordClient">Car:</label>
+          <input type="text" class="form-control" id="1" placeholder="Car info">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group m-0">
+          <label for="passwordClient">Issue:</label>
+          <input type="text" class="form-control" id="2" placeholder="Issue info">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group m-0">
+          <label for="passwordClient">From date:</label>
+          <div class="input-group">
+            <input [placement]="'bottom'" class="form-control" placeholder="yyyy-mm-dd"
+                   name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group m-0">
+          <label for="passwordClient">To date:</label>
+          <div class="input-group">
+            <input [placement]="'bottom'" class="form-control" placeholder="yyyy-mm-dd"
+                   name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <button class="btn btn-light w-100">Search</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header" [ngClass]="color">Followed cars</div>
+  <div class="card-body">
+    <table class="table table-hover table-sm small m-0">
+      <thead>
+      <tr>
+        <th scope="col">Visit date</th>
+        <th scope="col">Registered</th>
+        <th scope="col">Issue</th>
+        <th scope="col">Car</th>
+        <th scope="col" *ngIf="mode === 'workshop'">Client</th>
+        <th scope="col" *ngIf="mode === 'client'">Workshop</th>
+        <th scope="col" *ngIf="mode === 'client'">Location</th>
+        <th scope="col">Status</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let visit of (visits | async)">
+        <td class="align-middle">{{visit.date}}</td>
+        <td class="align-middle">{{visit.dateCreated}}</td>
+        <td class="align-middle">{{visit.issue}}</td>
+        <td class="align-middle">{{visit.car}}</td>
+        <td class="align-middle" *ngIf="mode === 'workshop'">{{visit.userName}}</td>
+        <td class="align-middle" *ngIf="mode === 'client'">{{visit.workstationName}}</td>
+        <td class="align-middle" *ngIf="mode === 'client'">{{visit.location}}</td>
+        <td class="align-middle">{{visit.status}}</td>
+        <td class="align-middle text-center">
+          <ng-container *ngIf="visit.status === 'proposal' && mode === 'workshop'">
+            <button class="btn btn-sm btn-success">
+              <i class="fa fa-check" aria-hidden="true"></i>
+            </button>
+            <button class="btn btn-sm btn-danger">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </button>
+          </ng-container>
+          <ng-container *ngIf="visit.status === 'accepted' && mode === 'workshop'">
+            <button class="btn btn-sm btn-warning">
+              <i class="fa fa-ban" aria-hidden="true"></i>
+               Cancel
+            </button>
+          </ng-container>
+          <ng-container *ngIf="mode === 'client'">
+            <button class="btn btn-sm btn-warning">
+              <i class="fa fa-ban" aria-hidden="true"></i>
+               Cancel
+            </button>
+          </ng-container>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

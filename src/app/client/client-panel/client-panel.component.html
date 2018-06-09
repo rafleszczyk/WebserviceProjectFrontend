@@ -1,6 +1,7 @@
 <div class="card">
-  <div class="card-header blue">
-    Client profile
+  <div class="card-header blue d-flex justify-content-between align-items-center">
+    <span>Client profile</span>
+    <button class="btn btn-primary special-btn-2 btn-sm" (click)="open(content)">Edit</button>
   </div>
   <div class="card-body">
     <div class="row">
@@ -8,16 +9,16 @@
                                        alt="User image"></div>
       <div class="col">
         <div class="d-flex flex-column">
-          <h5>Marcin Bednarek</h5>
+          <h5>{{clientMock.name}} {{clientMock.surname}}</h5>
           <table class="table table-hover">
             <tbody>
             <tr>
               <td>Telephone number:</td>
-              <td>668 895 140</td>
+              <td>{{clientMock.phoneNumber}}</td>
             </tr>
             <tr>
               <td>Email:</td>
-              <td>m.bednarek@mail.com</td>
+              <td>{{clientMock.email}}</td>
             </tr>
             <tr>
               <td>Registered on:</td>
@@ -60,6 +61,59 @@
     <app-cars-table [cars]="cars"></app-cars-table>
   </div>
   <div class="col-6">
-    <app-comments-table [comments]="comments"></app-comments-table>
+    <app-comments-table [color]="'blue'" [comments]="comments"></app-comments-table>
   </div>
 </div>
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h5 class="modal-title">Edit user details</h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="email" class="form-control" #name aria-describedby="emailHelp" [value]="clientMock.name">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="surname">Surname</label>
+            <input type="email" class="form-control" #surname aria-describedby="emailHelp" [value]="clientMock.surname">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" #email aria-describedby="emailHelp" [value]="clientMock.email">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Phone number</label>
+            <input type="email" class="form-control" #phone aria-describedby="emailHelp"
+                   [value]="clientMock.phoneNumber">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-success"
+            (click)="saveChanges(name.value, surname.value, email.value, phone.value)">Save
+    </button>
+  </div>
+</ng-template>
+
+<toaster-container></toaster-container>

@@ -1,17 +1,20 @@
 <div class="row">
   <div class="col-8">
     <app-workshop-details
+      [enableEdit]="false"
+      [color]="'blue'"
       [workshop]="selectedWorkshop">
     </app-workshop-details>
   </div>
   <div class="col">
     <app-google-map [workshopsList]="[selectedWorkshop]"
+                    [color] = "'blue'"
                     [selectedWorkshopId]="selectedWorkshop.WorkshopID"></app-google-map>
   </div>
 </div>
 <div class="row margin-top">
   <div class="col-8">
-    <app-comments-table [comments]="comments"></app-comments-table>
+    <app-comments-table [color]="'blue'" [comments]="comments"></app-comments-table>
     <div class="card mt-4">
       <div class="card-header blue">Add new comment</div>
       <div class="card-body container-fluid">

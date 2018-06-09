@@ -19,7 +19,8 @@ export class ClientHomeComponent {
   buildSideNavigation() {
     this.sideNavMetadata = [
       {name: 'Profile', redirectUrl: 'panel', favicon: 'fa fa-user'},
-      {name: 'Plan visit', redirectUrl: 'visit', favicon: 'fa fa-calendar'},
+      {name: 'Calendar', redirectUrl: 'calendar', favicon: 'fa fa-calendar'},
+      {name: 'Plan visit', redirectUrl: 'visit', favicon: 'fa fa-calendar-plus-o'},
       {name: 'Search car', redirectUrl: 'search-car', favicon: 'fa fa-search'},
       {name: 'Archive', redirectUrl: 'archive', favicon: 'fa fa-archive'}
     ];

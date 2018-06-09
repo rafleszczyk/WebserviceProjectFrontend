@@ -20,7 +20,7 @@ export class WorkshopHomeComponent {
     this.sideNavMetadata = [
       {name: 'Workstation profile', redirectUrl: 'workstation-profile', favicon: 'fa fa-car'},
       {name: 'Calendar', redirectUrl: 'calendar', favicon: 'fa fa-calendar'},
-      {name: 'Manage visits', redirectUrl: 'calendar', favicon: 'fa fa-calendar-check-o'},
+      {name: 'Manage visits', redirectUrl: 'manage-visits', favicon: 'fa fa-calendar-check-o'},
       {name: 'Archive', redirectUrl: 'archive', favicon: 'fa fa-archive'}
     ];
   }

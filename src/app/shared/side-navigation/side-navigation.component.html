@@ -1,6 +1,6 @@
 <ul class="list-group mt-3">
   <a *ngFor="let tab of sideNavMetadata" [routerLink]="[tab.redirectUrl]"
-     routerLinkActive="active-tab">
+     routerLinkActive="{{color === 'blue' ? 'blue-marker' : 'green-marker'}}">
     <li class="list-group-item nav-tab">
       <i class="{{tab.favicon}} mr-2" aria-hidden="true"></i>{{tab.name}}
     </li>

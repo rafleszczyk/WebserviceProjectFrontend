@@ -7,6 +7,7 @@ import 'rxjs/add/operator/do';
 import {IComment} from '../../assets/models/comment.interface';
 import {ICar} from '../../assets/models/car.interface';
 import {environment} from '../../environments/environment';
+import {IFollowedCar} from '../../assets/models/followed-car.interface';
 
 
 @Injectable()
@@ -38,9 +39,5 @@ export class WorkshopService {
 
   getUserComments(userId?: number) {
     return this._http.get<IComment[]>('assets/data/user-comments-mock.json');
-  }
-
-  getCars(): Observable<ICar[]> {
-    return this._http.get<ICar[]>('assets/data/cars-mock.json');
   }
 }

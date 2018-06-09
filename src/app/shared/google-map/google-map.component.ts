@@ -7,6 +7,7 @@ import {IWorkshop} from '../../../assets/models/workshop.interface';
   styleUrls: ['./google-map.component.scss']
 })
 export class GoogleMapComponent implements OnChanges, OnInit {
+  @Input() color: string;
   @Input() workshopsList: IWorkshop[];
   @Input() selectedWorkshopId: number;
   @Output() selectWorkshop: EventEmitter<number> = new EventEmitter<number>();

@@ -1,0 +1,54 @@
+.top-nav {
+  height: 55px;
+  position: relative;
+  background-color: #198C19;
+  z-index: 100;
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
+}
+
+.base-line {
+  line-height: 55px;
+}
+
+.side-menu-wrapper, .outlet-wrapper {
+  height: calc(100vh - 55px);
+}
+
+.router-outlet-wrapper {
+  height: 100%;
+}
+
+.side-menu-wrapper {
+  min-width: 250px;
+  position: relative;
+  -webkit-box-shadow: 2px 0px 3px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 2px 0px 3px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 2px 0px 3px 0px rgba(0, 0, 0, 0.15);
+}
+
+.my-btn {
+  color: white;
+  background-color: #147014;
+}
+
+.router-outlet-wrapper {
+  min-width: calc(100vw - 250px);
+  padding: 25px;
+}
+
+.logo {
+  width: 250px;
+  position: relative;
+  top: 4px;
+  background-image: url("../../../assets/images/logo.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.max-height {
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}

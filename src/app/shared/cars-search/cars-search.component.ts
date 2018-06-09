@@ -9,6 +9,7 @@ import {IBrand} from '../../../assets/models/brand.interface';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/share';
+import {ToasterService} from 'angular2-toaster';
 
 @Component({
   selector: 'app-cars-search',
@@ -27,7 +28,8 @@ export class CarsSearchComponent {
   resultsCollection: Observable<ICar[]>;
   serviceHistoryCollection: Observable<ICarService[]>;
 
-  constructor(private _carsService: CarsService, private _fb: FormBuilder, private modalService: NgbModal) {
+  constructor(private _carsService: CarsService, private _fb: FormBuilder, private modalService: NgbModal,
+              private _toasterService: ToasterService, private toasterService: ToasterService) {
     this.getCarBrands();
     this.buildFormGroup();
     this.isHistoryLoaded = false;
@@ -52,9 +54,9 @@ export class CarsSearchComponent {
 
   buildFormGroup() {
     this.filterForm = this._fb.group({
-      vin:            ['', [Validators.maxLength(17), Validators.minLength(17)]],
-      brand:          ['', Validators.required],
-      mark:           [''],
+      vin: ['', [Validators.maxLength(17), Validators.minLength(17)]],
+      brand: ['', Validators.required],
+      mark: [''],
       productionYear: [''],
     });
   }
@@ -101,5 +103,13 @@ export class CarsSearchComponent {
     return this.brandsCollection
       .filter((brand) => brand.BrandID === brandID)
       .map(brand => brand.BrandName);
+  }
+
+  followCar(car: ICar) {
+    this._carsService.followCar(car.CarID)
+      .subscribe(
+        () => this._toasterService.pop('success', 'Car Followed', 'Car successfully followed.'),
+        () => this._toasterService.pop('success', 'Car Followed', 'Car successfully followed.')
+      );
   }
 }

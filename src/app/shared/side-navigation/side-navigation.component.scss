@@ -8,13 +8,25 @@
   }
 }
 
-.active-tab {
-  animation: fade-border-left 0.5s linear forwards;
+.blue-marker {
+  animation: blue-marker-fade-left 0.5s linear forwards;
 }
 
-@keyframes fade-border-left {
+@keyframes blue-marker-fade-left {
   100% {
     border-left: 7px solid #287ACC;
+    background-color: #EEEFF0;
+    padding-left: 5px;
+  }
+}
+
+.green-marker {
+  animation: green-marker-fade-left 0.5s linear forwards;
+}
+
+@keyframes green-marker-fade-left {
+  100% {
+    border-left: 7px solid #428A2F;
     background-color: #EEEFF0;
     padding-left: 5px;
   }

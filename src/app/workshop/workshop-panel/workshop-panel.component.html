@@ -1,1 +1,24 @@
-<!--<app-workshop-details></app-workshop-details>-->
+<div class="row">
+  <div class="col-3">
+    <app-google-map
+      [workshopsList]="[myWorkshop]"
+      [color]="'green'"
+      [selectedWorkshopId]="myWorkshop.WorkshopID">
+    </app-google-map>
+  </div>
+  <div class="col">
+    <app-workshop-details
+      [color]="'green'"
+      [workshop]="myWorkshop"
+      [enableEdit]="true">
+    </app-workshop-details>
+  </div>
+</div>
+<div class="row">
+  <div class="col mt-4">
+    <app-comments-table
+    [comments]="commentsCollection"
+    [color]="'green'">
+    </app-comments-table>
+  </div>
+</div>

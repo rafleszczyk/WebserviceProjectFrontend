@@ -26,6 +26,7 @@ import {CalendarModule} from 'primeng/calendar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SpinnerComponent} from './spinner/spinner.component';
 import {ToasterModule} from 'angular2-toaster';
+import {VisitsTableComponent} from './visits-table/visits-table.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import {ToasterModule} from 'angular2-toaster';
     LoginComponent,
     CarsTableComponent,
     CarsSearchComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    VisitsTableComponent,
   ],
   imports: [
     CommonModule,
@@ -71,6 +73,7 @@ import {ToasterModule} from 'angular2-toaster';
     LoginComponent,
     CarsTableComponent,
     SpinnerComponent,
+    VisitsTableComponent,
   ],
   providers: [
     AuthenticationGuard,

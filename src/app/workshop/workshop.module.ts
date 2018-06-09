@@ -4,6 +4,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {WorkshopHomeComponent} from './workshop-home/workshop-home.component';
 import {WorkshopPanelComponent} from './workshop-panel/workshop-panel.component';
+import {WorkshopManageVisitsComponent} from './manage-visits/workshop-manage-visits.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,14 @@ const routes: Routes = [
         path: 'workstation-profile',
         component: WorkshopPanelComponent,
         data: {
-          breadcrumbName: 'Panel',
+          breadcrumbName: 'Workshop Panel',
+        }
+      },
+      {
+        path: 'manage-visits',
+        component: WorkshopManageVisitsComponent,
+        data: {
+          breadcrumbName: 'Manage Visits',
         }
       },
     ]
@@ -32,15 +40,15 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     WorkshopHomeComponent,
-    WorkshopPanelComponent
+    WorkshopPanelComponent,
+    WorkshopManageVisitsComponent,
   ],
   imports: [
     SharedModule,
     CommonModule,
     RouterModule.forChild(routes),
   ],
-  exports: [
-  ],
+  exports: [],
   providers: [],
 
 })
