@@ -1,12 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+import {ReactiveFormsModule} from '@angular/forms';
 
 // import { MainTopComponent } from './main-top/main-top.component';
 // import { OffertsComponent } from './offerts/offerts.component';
 // import { AboutComponent } from './about/about.component';
-import { WorkshopSignupFormComponent } from './workshop-signup-form/workshop-signup-form.component';
-import { CarProfileComponent } from './car-profile/car-profile.component';
-import { ServiceFormComponent } from './service-form/service-form.component';
+import {WorkshopSignupFormComponent} from './workshop-signup-form/workshop-signup-form.component';
+import {CarProfileComponent} from './car-profile/car-profile.component';
+import {ServiceFormComponent} from './service-form/service-form.component';
 import {PanelClientService} from './services/panel-client.service';
 import {NgModule} from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -26,11 +26,12 @@ import {AuthenticationInterceptor} from './interceptors/authentication.intercept
 import {WorkshopModule} from './workshop/workshop.module';
 import {CarsService} from './services/cars.service';
 import {ToasterModule} from 'angular2-toaster';
+import {LandingPageComponent} from './landing page/landing-page.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/home/login', pathMatch: 'full'},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home/login', component: LoginComponent},
-  {path: 'home', component: HomePageComponent},
+  {path: 'home', component: LandingPageComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 
@@ -43,6 +44,7 @@ const routes: Routes = [
     WorkshopSignupFormComponent,
     CarProfileComponent,
     ServiceFormComponent,
+    LandingPageComponent,
   ],
   imports: [
     ClientModule,
